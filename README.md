@@ -3,8 +3,8 @@ Please go under edit and edit this file as needed for your project
 # Project Name - Consumer Goods Manufacture And Distribution System
 # Batch - Malabe.Y2.S2.WD.G2
 ### Group Leader - IT20212232 - Annasiwatta S.A(IT21217968)
-### Member 2 - IT21221064-Sachintha N.H.D.K(IT21221064)
-### Member 3 - 
+### Member 2 - IT21221064 - Sachintha N.H.D.K(IT21221064)
+### Member 3 - IT21213694 - De Silva G.S.D(IT21213694)
 ### Member 4 - 
 ### Member 5 - 
 ### Member 6 - 
