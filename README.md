@@ -12,5 +12,5 @@ Please go under edit and edit this file as needed for your project
 ### Member 8 - 
 
 #### Brief Description of Project - Developing an ERP system for Glan International
-#### Technologies used - MEERN Stcak
+#### Technologies used - MERN Stcak
 
