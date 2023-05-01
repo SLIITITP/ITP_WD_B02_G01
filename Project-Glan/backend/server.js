@@ -17,6 +17,7 @@ app.use('/api/customer/', require('./routes/customerRouter'));
 app.use('/api/privilege/', require('./routes/privilegeRouter'));
 app.use('/api/feedback/', require('./routes/feedbackRouter'));
 app.use('/api/notification/', require('./routes/notificationRouter'));
+app.use('/api/task/', require('./routes/taskRouter'));
 
 app.use(errorHandler)
 mongoose.connection.once('open', () => {
