@@ -20,6 +20,10 @@ app.use('/api/notification/', require('./routes/notificationRouter'));
 app.use('/api/task/', require('./routes/taskRouter'));
 app.use('/api/invoice', require('./routes/invoiceRouter'));
 app.use('/api/location', require('./routes/locationRouter'));
+app.use('/api/vehicle', require('./routes/vehicleRouter'));
+
+
+
 app.use(errorHandler)
 mongoose.connection.once('open', () => {
     console.log("Connected to DB");
