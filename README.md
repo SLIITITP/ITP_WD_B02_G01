@@ -8,7 +8,7 @@ Please go under edit and edit this file as needed for your project
 ### Member 4 - IT21165870 - Dharmawardhana W.G.D.S(IT21165870)
 ### Member 5 - IT21304538 - Kumarasinghe M.G.H(IT21304538)
 ### Member 6 - IT21218644 - Palihena N.V(IT21218644)
-### Member 7 - 
+### Member 7 - IT21220838 - Silva A.S.V(IT21220838)
 ### Member 8 - 
 
 #### Brief Description of Project - Developing an ERP system for Glan International
