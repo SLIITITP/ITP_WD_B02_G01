@@ -23,6 +23,9 @@ import Updatelocation from './pages/UpdateLocation';
 import UpdateEmp from "./pages/UpdateEmployee";
 import EmployeeTable from "./pages/employeeTable";
 import AddEmployee from "./pages/AddEmployee";
+import AddVehicle from "./pages/AddVehicle";
+import UpdateVehicle from "./pages/UpdateVehicle";
+import VehicleList from "./pages/VehicleList"
 function App() {
   return (
     <Provider store={Store}>
