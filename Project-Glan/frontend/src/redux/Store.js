@@ -3,8 +3,9 @@ import TaskReducer from "./reducers/taskReducers";
 import ItemReducer from "./reducers/itemReducers";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
+import VehicleReducer from "./reducers/VehicleReducers";
 
-const rootreducer = combineReducers({ task: TaskReducer, item: ItemReducer });
+const rootreducer = combineReducers({ task: TaskReducer, item: ItemReducer, vehicle: VehicleReducer });
 const Store = configureStore({
   reducer: rootreducer,
   middleware: [thunk, logger],

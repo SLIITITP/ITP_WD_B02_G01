@@ -11,6 +11,10 @@ import Store from "./redux/Store";
 import ItemDashboard from "./pages/ItemDashboard";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
+import AddVehicle from "./pages/AddVehicle";
+import UpdateVehicle from "./pages/UpdateVehicle";
+import VehicleList from "./pages/VehicleList"
+
 
 function App() {
   return (
@@ -26,6 +30,9 @@ function App() {
             <Route path="/ItemDashboard" element={<ItemDashboard />} />
             <Route path="/AddItem" element={<AddItem />} />
             <Route path="/UpdateItem/:code" element={<UpdateItem />} />
+            <Route path="/vehicle/add" element={<AddVehicle />} />
+            <Route path="/vehicle/edit/:code" element={<UpdateVehicle />} />
+            <Route path="/vehicle" element={<VehicleList />} />
           </Routes>
         </Router>
         <ToastContainer />
