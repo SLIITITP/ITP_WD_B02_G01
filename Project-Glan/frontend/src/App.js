@@ -15,6 +15,15 @@ import AddInv from "./pages/AddInv";
 import UpdateInv from "./pages/UpdateInv";
 import InListing from "./pages/InListing";
 
+import Dashboard from './pages/Dashboard';
+import Locationlisting from './pages/LocationListing';
+import Addlocation from './pages/AddLocation';
+import Updatelocation from './pages/UpdateLocation';
+
+import UpdateEmp from "./pages/UpdateEmployee";
+import EmployeeTable from "./pages/employeeTable";
+import AddEmployee from "./pages/AddEmployee";
+
 function App() {
   return (
     <Provider store={Store}>
@@ -29,6 +38,13 @@ function App() {
             <Route path="/ItemDashboard" element={<ItemDashboard />} />
             <Route path="/AddItem" element={<AddItem />} />
             <Route path="/UpdateItem/:code" element={<UpdateItem />} />
+            <Route path='/locationDashboard' element={<Dashboard />} />
+            <Route path='/location' element={<Locationlisting />} />
+            <Route path='/location/add' element={<Addlocation />} />
+            <Route path='/location/edit/:code' element={<Updatelocation />} />
+            <Route path='/emp' element={<EmployeeTable />} />
+            <Route path='/emp/edit/:code' element={<UpdateEmp />} />
+            <Route path='/emp/add' element={<AddEmployee />} />
             <Route path='/invoice' element={<InListing />} />
             <Route path='/invoice/add' element={<AddInv />}></Route>
             <Route path='/invoice/edit/:code' element={<UpdateInv />}></Route>

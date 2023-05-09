@@ -8,7 +8,6 @@ const ItemListing = (props) => {
   useEffect(() => {
     props.loaditem();
   }, []);
-
   const handleDelete = (code) => {
     if (window.confirm("Remove item ?")) {
       props.removeitem(code);
@@ -17,7 +16,7 @@ const ItemListing = (props) => {
     }
   };
 
-  /*return props.Item.loading ? (
+  return props.Item.loading ? (
     <div>
       <h2>Loading data...</h2>
     </div>
@@ -25,7 +24,7 @@ const ItemListing = (props) => {
     <div>
       <h2>{props.Item.errmessage}</h2>
     </div>
-  ) :*/ return (
+  ) : (
     <div>
       <div className="Content">
         <h1>Item Dashboard</h1>
