@@ -7,7 +7,12 @@ import EmployeeReducer from "./reducers/employeeReducer";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 
-const rootreducer = combineReducers({ task: TaskReducer, Item: ItemReducer });
+const rootreducer = combineReducers({
+  task: TaskReducer,
+  Item: ItemReducer,
+  location: LocationReducer,
+  emp: EmployeeReducer,
+});
 const Store = configureStore({
   reducer: rootreducer,
   middleware: [thunk, logger],
