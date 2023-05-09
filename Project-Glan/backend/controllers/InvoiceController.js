@@ -45,7 +45,7 @@ const setInv = asyncHandler(async(req,res) =>{
     }
         )}else{
         res.status(400)
-        throw new Error("Invalid user data")
+        throw new ErrorEvent("Invalid user data")
     }
 
      res.status(200).json({message :"New invoice created"});

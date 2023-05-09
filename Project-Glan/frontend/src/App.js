@@ -11,6 +11,9 @@ import Store from "./redux/Store";
 import ItemDashboard from "./pages/ItemDashboard";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
+import AddInv from "./pages/AddInv";
+import UpdateInv from "./pages/UpdateInv";
+import InListing from "./pages/InListing";
 
 function App() {
   return (
@@ -26,6 +29,9 @@ function App() {
             <Route path="/ItemDashboard" element={<ItemDashboard />} />
             <Route path="/AddItem" element={<AddItem />} />
             <Route path="/UpdateItem/:code" element={<UpdateItem />} />
+            <Route path='/invoice' element={<InListing />} />
+            <Route path='/invoice/add' element={<AddInv />}></Route>
+            <Route path='/invoice/edit/:code' element={<UpdateInv />}></Route>
           </Routes>
         </Router>
         <ToastContainer />
