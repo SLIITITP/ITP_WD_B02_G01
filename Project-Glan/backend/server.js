@@ -28,6 +28,8 @@ app.use("/api/item", require("./routes/itemRouter"));
 app.use("/api/supplier", require("./routes/supplierRouter"));
 app.use("/api/rawmaterial", require("./routes/rawMatRouter"));
 
+app.use('/api/employee', require('./routes/employeeRouter'));
+
 app.use(errorHandler);
 mongoose.connection.once("open", () => {
   console.log("Connected to DB");
