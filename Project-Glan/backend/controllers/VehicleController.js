@@ -95,9 +95,22 @@ const deleteVehicle = asyncHandler(async (req, res) => {
   res.status(200).json({ _id: req.params.id })
 })
 
+//get one vehicle
+const getVById = asyncHandler(async(req,res)=>{
+  const vehicle = await Vehicle.findById(req.params.id);
+  if(!vehicle){
+      res.status(401);
+      throw new Error("Vehicle not Found!");
+  }
+
+  res.status(200).json(vehicle);
+})
+
+
 module.exports = {
   getVehicle,
   setVehicle,
   updateVehicle,
-  deleteVehicle
+  deleteVehicle,
+  getVById
 };
