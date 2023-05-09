@@ -110,9 +110,21 @@ const deleteCus = asyncHandler(async(req, res) => {
     // });
 })
 
+//get one customer
+const getCustomerById = asyncHandler(async(req, res) => {
+    const customer = await Customer.findById(req.params.id);
+    if (!customer) {
+        res.status(401);
+        throw new Error("Customer not Found");
+    }
+
+    res.status(200).json(customer);
+})
+
 module.exports = {
     getCus,
     setCus,
     updateCus,
-    deleteCus
+    deleteCus,
+    getCustomerById
 };

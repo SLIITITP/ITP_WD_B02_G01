@@ -5,19 +5,20 @@ import AddTask from "./pages/AddTask";
 import UpdateTask from "./pages/UpdateTask";
 import TaskListing from "./pages/TaskListing";
 import { ToastContainer } from "react-toastify";
-import Header from "./components/Header";
 import { Provider } from "react-redux";
 import Store from "./redux/Store";
 import ItemDashboard from "./pages/ItemDashboard";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
+import CustomerListing from "./pages/CustomerListing";
+import AddCustomer from "./pages/AddCustomer";
+import UpdateCustomer from "./pages/UpdateCustomer";
 
 function App() {
   return (
     <Provider store={Store}>
       <div className="App">
         <Router>
-          <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/task" element={<TaskListing />} />
@@ -26,6 +27,9 @@ function App() {
             <Route path="/ItemDashboard" element={<ItemDashboard />} />
             <Route path="/AddItem" element={<AddItem />} />
             <Route path="/UpdateItem/:code" element={<UpdateItem />} />
+            <Route path="/customer/add" element={<AddCustomer />} />
+            <Route path ="/viewCustomer" element={<CustomerListing/>}/>
+            <Route path="/customer/edit/:code" element={<UpdateCustomer />} />
           </Routes>
         </Router>
         <ToastContainer />
