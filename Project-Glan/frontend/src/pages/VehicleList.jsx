@@ -30,6 +30,7 @@ const VehicleList = (props) => {
       ) : (
         <div>
           <div className="card">
+          <h1>Vehicle</h1>
             <div className="card-header">
               <Link to={"/vehicle/add"} className="btn btn-success">
                 Create New Vehicle [+]
@@ -38,15 +39,18 @@ const VehicleList = (props) => {
             <div className="card-body">
               <table className="table table-bordered">
                 <thead className="bg-dark text-white">
+                  
                   <tr>
-                    <td>Obj Id</td>
-                    <td>Vehicle Type</td>
-                    <td>Vehicle NumPlate </td>
-                    <td>Vehicle Insurance</td>
-                    <td>Vehicle Capacity</td>
-                    <td>Vehicle Status</td>
-                    <td>Action</td>
+                    <th>Obj Id</th>
+                    <th>Vehicle Type</th>
+                    <th>Vehicle NumPlate </th>
+                    <th>Vehicle Insurance</th>
+                    <th>Vehicle Capacity</th>
+                    <th>Vehicle Status</th>
+                    <th>Action</th>
+                  
                   </tr>
+                  <br></br>
                 </thead>
                 <tbody>
                   {props.vehicle.vehiclelist &&

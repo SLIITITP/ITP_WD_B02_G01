@@ -33,6 +33,7 @@ import LocationReport from "./pages/LocationReport";
 import CustomerListing from "./pages/CustomerListing";
 import AddCustomer from "./pages/AddCustomer";
 import UpdateCustomer from "./pages/UpdateCustomer";
+import VehicleReport from "./pages/VehicleReport";
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
             <Route path="/viewCustomer" element={<CustomerListing />} />
             <Route path="/customer/edit/:code" element={<UpdateCustomer />} />
             <Route path="/itemreport" element={<ItemReport />} />
+            <Route path="/vehicle/report" element={<VehicleReport />} />
           </Routes>
         </Router>
         <ToastContainer />
