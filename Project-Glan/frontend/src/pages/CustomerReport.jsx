@@ -38,7 +38,7 @@ function CustomerListing(props) {
         <div>
           <div className="card">
           <div className="card-header" style={{ textAlign: "left" }}>
-              <h2>Create Customer</h2>
+              <h2>Customer Report</h2>
             </div>
             <div className="card-header">
               <Link to={"/customer/add"} className="btn btn-success">
