@@ -41,6 +41,9 @@ import EmployeeReport from "./pages/EmployeeReport";
 import CustomerReport from "./pages/CustomerReport";
 import TaskReport from "./pages/TaskReport";
 import TaskDashboard from "./pages/TaskDashboard";
+import LocationDashboard from "./pages/LocationDashboard";
+
+
 function App() {
   return (
     <Provider store={Store}>
@@ -57,7 +60,7 @@ function App() {
             <Route path="/vehicle/add" element={<AddVehicle />} />
             <Route path="/vehicle/edit/:code" element={<UpdateVehicle />} />
             <Route path="/vehicle" element={<VehicleList />} />
-            <Route path="/locationDashboard" element={<Dashboard />} />
+
             <Route path="/location" element={<Locationlisting />} />
             <Route path="/location/add" element={<Addlocation />} />
             <Route path="/location/edit/:code" element={<Updatelocation />} />
@@ -78,7 +81,10 @@ function App() {
             <Route path="/customer/report" element={<CustomerReport />}/>
             <Route path="/vehicleDashboard" element={<VehicleDashboard/>}/>
             <Route path="/task/report" element={<TaskReport />} />
-            <Route path="/taskDashboard" element={<TaskDashboard/>}/>
+            <Route path="/taskDashboard" element={<TaskDashboard/>}/>\
+            <Route path="/locationDashboard" element={<LocationDashboard/>}/>
+            
+      
           </Routes>
         </Router>
         <ToastContainer />
