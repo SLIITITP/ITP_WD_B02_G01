@@ -56,14 +56,25 @@ const ItemListing = (props) => {
             </script>
           ))}
         <h3>
-          <span>{lowquant.toFixed(0)}</span>
+          <span>Outof Stock Count : {lowquant.toFixed(0)}</span>
         </h3>
         <h3>
-          <span>{totalquant.toFixed(0)}</span>
+          <span>Total Quantity Count : {totalquant.toFixed(0)}</span>
         </h3>
         <h3>
-          <span>{totalexpens.toFixed(0)}</span>
+          <span>Total Stock Value : {totalexpens.toFixed(0)}</span>
         </h3>
+
+        <iframe
+          style={
+            ({ background: "#FFFFFF" },
+            { borderradius: "2px" },
+            { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+          }
+          width="640"
+          height="480"
+          src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645ba979-9cc7-41f7-86ab-3ce8be56e10a&maxDataAge=3600&theme=light&autoRefresh=true"
+        ></iframe>
 
         <table class="table table-dark table-borderless">
           <tr>
