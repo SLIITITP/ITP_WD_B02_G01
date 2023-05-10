@@ -36,6 +36,8 @@ import CustomerListing from "./pages/CustomerListing";
 import AddCustomer from "./pages/AddCustomer";
 import UpdateCustomer from "./pages/UpdateCustomer";
 import VehicleReport from "./pages/VehicleReport";
+import EmployeeReport from "./pages/EmployeeReport";
+import CustomerReport from "./pages/CustomerReport";
 
 function App() {
   return (
@@ -70,6 +72,8 @@ function App() {
             <Route path="/itemreport" element={<ItemReport />} />
             <Route path="/vehicle/report" element={<VehicleReport />} />
             <Route path="/itemDashboard" element={<ItemDashboard />} />
+            <Route path="/emp/report" element={<EmployeeReport />} />
+            <Route path="/customer/report" element={<CustomerReport />} />
           </Routes>
         </Router>
         <ToastContainer />
