@@ -75,7 +75,7 @@ function App() {
             <Route path="/itemDashboard" element={<ItemDashboard />} />
             <Route path="/emp/report" element={<EmployeeReport />} />
             <Route path="/customer/report" element={<CustomerReport />}/>
-            <Route path="/vehicleDashbord" element={<VehicleDashboard/>}/>
+            <Route path="/vehicleDashboard" element={<VehicleDashboard/>}/>
           </Routes>
         </Router>
         <ToastContainer />

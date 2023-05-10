@@ -58,7 +58,7 @@ function CustomerListing(props) {
                     <td>Date of Birthday</td>
                     <td>Contact Number</td>
                     <td>User Name</td>
-                    <td>Password</td>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -73,7 +73,7 @@ function CustomerListing(props) {
                         <td>{item.dob}</td>
                         <td>{item.conInfo}</td>
                         <td>{item.user}</td>
-                        <td>{item.password}</td>
+                        
                         
                       </tr>
                     ))}
