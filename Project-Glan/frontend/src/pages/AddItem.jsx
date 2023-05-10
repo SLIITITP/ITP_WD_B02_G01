@@ -86,17 +86,7 @@ const Additem = () => {
                 onChange={(e) => setquantity(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <lable className="form-group label">item image : </lable>
-              <input
-                type="file"
-                className="form-group image"
-                id="itemimage"
-                name="itemimage"
-                value={itemimage}
-                onChange={(e) => setitemimage(e.target.value)}
-              />
-            </div>
+            
             <div className="form-group">
               <lable className="form-group label">item description : </lable>
               <input

@@ -36,8 +36,12 @@ import CustomerListing from "./pages/CustomerListing";
 import AddCustomer from "./pages/AddCustomer";
 import UpdateCustomer from "./pages/UpdateCustomer";
 import VehicleReport from "./pages/VehicleReport";
+<<<<<<< HEAD
 import EmployeeReport from "./pages/EmployeeReport";
 import CustomerReport from "./pages/CustomerReport";
+=======
+import VehicleDashboard from "./pages/VehicleDashboard";
+>>>>>>> f2da3d38cf2b3f243b6eb85d6f97adc5f787dcb1
 
 function App() {
   return (
@@ -72,8 +76,12 @@ function App() {
             <Route path="/itemreport" element={<ItemReport />} />
             <Route path="/vehicle/report" element={<VehicleReport />} />
             <Route path="/itemDashboard" element={<ItemDashboard />} />
+<<<<<<< HEAD
             <Route path="/emp/report" element={<EmployeeReport />} />
             <Route path="/customer/report" element={<CustomerReport />} />
+=======
+            <Route path="/vehicleDashboard" element={<VehicleDashboard />} />
+>>>>>>> f2da3d38cf2b3f243b6eb85d6f97adc5f787dcb1
           </Routes>
         </Router>
         <ToastContainer />
