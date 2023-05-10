@@ -109,7 +109,7 @@ const UpdateEmp = () => {
           </div>
           <div className="card-footer" style={{ textAlign: "left" }}>
             <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to={'/'} className="btn btn-danger">Back</Link>
+            <Link to={'/emp'} className="btn btn-danger">Back</Link>
 
           </div>
         </div>
