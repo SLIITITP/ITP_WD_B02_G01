@@ -46,7 +46,7 @@ const LocationListing = (props) => {
                     <td>Item Quantity</td>
                     <td>Item Category</td>
                     <td>Item Description</td>
-                    <td>Action</td>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -58,10 +58,7 @@ const LocationListing = (props) => {
                       <td>{item.Qty}</td>
                       <td>{item.Category}</td>
                       <td>{item.Description}</td>
-                      <td>
-                        <Link to={'/location/edit/' + item._id} className="btn btn-primary">Edit</Link> |
-                        <button onClick={() => { handleDelete(item._id); }} className="btn btn-danger">Remove</button>
-                      </td>
+                      
 
                     </tr>
                   )}
