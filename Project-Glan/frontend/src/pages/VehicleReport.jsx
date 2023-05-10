@@ -77,7 +77,7 @@ const VehicleList = (props) => {
                     </table>
                     </div>
                     <button className="btn btn-success" onClick={generatePDF}>
-            PDF
+            PDF DOWNLOADS
           </button>
                 </div>
             </div>
