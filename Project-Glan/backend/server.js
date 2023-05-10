@@ -3,7 +3,7 @@ const dotenv = require("dotenv").config();
 const cors = require('cors');
 const { errorHandler } = require("./middleware/errorMiddleware");
 const port = 5000;
-//const port = process.env.PORT || 5000
+//const port = process.env.PORT || 5000 
 const connectDB = require("./configs/config");
 const { default: mongoose } = require("mongoose");
 
@@ -14,7 +14,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-
 //add route
 app.use("/api/customer/", require("./routes/customerRouter"));
 app.use("/api/privilege/", require("./routes/privilegeRouter"));
@@ -27,7 +26,6 @@ app.use("/api/vehicle", require("./routes/vehicleRouter"));
 app.use("/api/item", require("./routes/itemRouter"));
 app.use("/api/supplier", require("./routes/supplierRouter"));
 app.use("/api/rawmaterial", require("./routes/rawMatRouter"));
-
 app.use('/api/employee', require('./routes/employeeRouter'));
 
 app.use(errorHandler);
