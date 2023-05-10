@@ -10,6 +10,7 @@ import Store from "./redux/Store";
 import ItemDashboard from "./pages/ItemDashboard";
 import AddItem from "./pages/AddItem";
 import UpdateItem from "./pages/UpdateItem";
+import ItemReport from "./pages/ItemReport";
 
 import UpdateEmp from "./pages/UpdateEmployee";
 import EmployeeTable from "./pages/employeeTable";
@@ -17,7 +18,7 @@ import AddEmployee from "./pages/AddEmployee";
 
 import AddVehicle from "./pages/AddVehicle";
 import UpdateVehicle from "./pages/UpdateVehicle";
-import VehicleList from "./pages/VehicleList"
+import VehicleList from "./pages/VehicleList";
 
 import AddInv from "./pages/AddInv";
 import UpdateInv from "./pages/UpdateInv";
@@ -32,7 +33,6 @@ import LocationReport from "./pages/LocationReport";
 import CustomerListing from "./pages/CustomerListing";
 import AddCustomer from "./pages/AddCustomer";
 import UpdateCustomer from "./pages/UpdateCustomer";
-
 
 function App() {
   return (
@@ -62,8 +62,9 @@ function App() {
             <Route path='/invoice/add' element={<AddInv />}></Route>
             <Route path='/invoice/edit/:code' element={<UpdateInv />}></Route>
             <Route path="/customer/add" element={<AddCustomer />} />
-            <Route path ="/viewCustomer" element={<CustomerListing/>}/>
+            <Route path="/viewCustomer" element={<CustomerListing />} />
             <Route path="/customer/edit/:code" element={<UpdateCustomer />} />
+            <Route path="/itemreport" element={<ItemReport />} />
           </Routes>
         </Router>
         <ToastContainer />
