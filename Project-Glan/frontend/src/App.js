@@ -27,10 +27,12 @@ import Dashboard from './pages/Dashboard';
 import Locationlisting from './pages/LocationListing';
 import Addlocation from './pages/AddLocation';
 import Updatelocation from './pages/UpdateLocation';
+import LocationReport from "./pages/LocationReport";
 
 import CustomerListing from "./pages/CustomerListing";
 import AddCustomer from "./pages/AddCustomer";
 import UpdateCustomer from "./pages/UpdateCustomer";
+
 
 function App() {
   return (
@@ -52,6 +54,7 @@ function App() {
             <Route path='/location' element={<Locationlisting />} />
             <Route path='/location/add' element={<Addlocation />} />
             <Route path='/location/edit/:code' element={<Updatelocation />} />
+            <Route path='/location/Report' element={<LocationReport />} />
             <Route path='/emp' element={<EmployeeTable />} />
             <Route path='/emp/edit/:code' element={<UpdateEmp />} />
             <Route path='/emp/add' element={<AddEmployee />} />
