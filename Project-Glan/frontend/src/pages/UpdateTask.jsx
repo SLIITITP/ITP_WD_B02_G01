@@ -11,6 +11,7 @@ const UpdateTask = () => {
   const [prodSupe, setProdSupe] = useState("");
   const [sDate, setSDate] = useState("");
   const [eDate, setEDate] = useState("");
+  const [tState, setTState] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,12 +32,13 @@ const UpdateTask = () => {
       setProdSupe(taskobj.prodSupe);
       setSDate(taskobj.sDate);
       setEDate(taskobj.eDate);
+      setTState(taskobj.tState);
     }
   }, [taskobj]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const taskobj = { _id, tId, iName, iQty, prodSupe, sDate, eDate };
+    const taskobj = { _id, tId, iName, iQty, prodSupe, sDate, eDate,tState };
     dispatch(TaskUpdate(_id, taskobj));
     navigate("/task");
   };
@@ -129,6 +131,18 @@ const UpdateTask = () => {
                     className="form-control"
                     value={eDate || ""}
                     onChange={(e) => setEDate(e.target.value)}
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-lg-12">
+                <div className="form-group">
+                  <label>Task Status :</label>
+                  <input
+                    className="form-control"
+                    value={tState || ""}
+                    onChange={(e) => setTState(e.target.value)}
                   />
                 </div>
               </div>

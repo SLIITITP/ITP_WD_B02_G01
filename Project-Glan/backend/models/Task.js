@@ -27,7 +27,11 @@ const taskSchema  = mongoose.Schema({
         type : Date,
         required : [true, 'Start date is rquired']
     },
-    eDate : Date
+    eDate : Date,
+    tState : {
+        type : String,
+        required : [true, 'Start date is rquired']
+    },
 }
 );
 

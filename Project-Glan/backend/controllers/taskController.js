@@ -9,9 +9,9 @@ const getTask = asyncHandler(async (req, res) => {
 })
 
 const setTask = asyncHandler(async (req, res) => {
-    const tasks = ({ tId, iName, iQty, prodSupe, sDate, eDate } = req.body);
+    const tasks = ({ tId, iName, iQty, prodSupe, sDate, eDate,tState} = req.body);
 
-    if (!tId || !iName || !iQty || !sDate) {
+    if (!tId || !iName || !iQty || !sDate||!tState) {
         res.status(400);
         throw new Error("Please input all feilds");
     }
@@ -23,6 +23,7 @@ const setTask = asyncHandler(async (req, res) => {
         prodSupe,
         sDate,
         eDate,
+        tState
         //user : req.user.id      
     });
 
@@ -33,7 +34,8 @@ const setTask = asyncHandler(async (req, res) => {
             iQty: task.iQty,
             prodSupe: task.prodSupe,
             sDate: task.sDate,
-            eDate: task.eDate
+            eDate: task.eDate,
+            tState: task.tState
 
             //user : task.user               
         }
