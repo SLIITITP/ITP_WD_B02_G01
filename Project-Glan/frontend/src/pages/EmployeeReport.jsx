@@ -22,7 +22,7 @@ const EmployeeTable = (props) => {
   }
   const generatePDF = useReactToPrint({
     content: () => componentPDF.current,
-    documentTitle: "Employee Item list",
+    documentTitle: "Employee list",
     OnAFterPrint: () => alert("Data saved in PDF"),
   })
 
