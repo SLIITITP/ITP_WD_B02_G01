@@ -5,14 +5,9 @@ import { toast } from "react-toastify";
 import { FetchItemList, RemoveItem } from "../redux/actions/ItemActions";
 
 const ItemListing = (props) => {
-  let lowquant = 0;
-  let totalquant = 0;
-  let totalexpens = 0;
-
   useEffect(() => {
     props.loaditem();
   }, []);
-
   const handleDelete = (code) => {
     if (window.confirm("Remove item ?")) {
       props.removeitem(code);
@@ -43,28 +38,6 @@ const ItemListing = (props) => {
         <br></br>
         <br></br>
         <br></br>
-        {props.Item.itemlists &&
-          props.Item.itemlists.map((iitem) => (
-            <script>
-              {iitem.quantity == 0 ? (lowquant = lowquant + 1) : null}
-              {iitem.quantity
-                ? (totalquant = totalquant + iitem.quantity)
-                : null}
-              {iitem.quantity && iitem.unitprice
-                ? (totalexpens = totalexpens + iitem.quantity * iitem.unitprice)
-                : null}
-            </script>
-          ))}
-        <h3>
-          <span>{lowquant.toFixed(0)}</span>
-        </h3>
-        <h3>
-          <span>{totalquant.toFixed(0)}</span>
-        </h3>
-        <h3>
-          <span>{totalexpens.toFixed(0)}</span>
-        </h3>
-
         <table class="table table-dark table-borderless">
           <tr>
             <th>Item Code</th>
