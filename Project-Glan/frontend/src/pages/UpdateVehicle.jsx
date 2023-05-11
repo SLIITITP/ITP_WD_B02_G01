@@ -4,6 +4,9 @@ import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FetchVehicleObj,VehicleUpdate  } from "../redux/actions/VehicleAction";
+import Header_bar_vehi from "../components/Header_bar/Header_bar_vehi";
+import "../pages/Content.css"
+
 
 
 const UpdateVehicle = () => {
@@ -54,19 +57,30 @@ const UpdateVehicle = () => {
 
     return (
         <div>
+            <div>  <Header_bar_vehi 
+                fun1="Dashboard"
+                fun2="Vehicles"
+                fun3="Orders"
+                fun4="Quotes"
+                fun5="Warehouse"
+                fun6="Releases"
+                fun7="Report"/>
+        </div>
+        <div className="search">
+        </div>
+        <div class="page_sub_header">
+        <t class="sub_header_topic">Update Vehicle User</t>
+        </div>
+        <div  className="ContentForm ">
             <form onSubmit={handleSubmit}>
-                <div className="card">
-                    <div className="card-header" style={{ textAlign: "left" }}>
-                        <h2>Add user</h2>
-                    </div>
                     <div className="card-body" style={{ textAlign: "left" }}>
-                        <div className="row">
+                        <div>
 
-                            <div className="col-lg-12">
+                            <div>
 
-                                <div className="form-group">
+                                <div>
 
-                                    <label>Obj Id :</label>
+                                    <label class="form">Obj Id :</label>
 
                                     <input
 
@@ -80,13 +94,13 @@ const UpdateVehicle = () => {
 
                                 </div>
 
-                            </div>
+                            
 
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Vehicle Type:</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Vehicle Type:</label>
                                     <input
                                         className="form-control"
                                         value={vType || ""}
@@ -95,10 +109,10 @@ const UpdateVehicle = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Vehicle NumPlate :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Vehicle NumPlate :</label>
                                     <input
                                         className="form-control"
                                         value={numPlate || ""}
@@ -107,10 +121,10 @@ const UpdateVehicle = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Vehicle Insurance :</label>
+                        <div>
+                            <div>
+                                <div >
+                                    <label class="form">Vehicle Insurance :</label>
                                     <input
                                         className="form-control"
                                         value={insurance || ""}
@@ -119,10 +133,10 @@ const UpdateVehicle = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Vehicle Capacity:</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Vehicle Capacity:</label>
                                     <input
                                         className="form-control"
                                         value={capacity || ""}
@@ -131,10 +145,10 @@ const UpdateVehicle = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Vehicle Status :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Vehicle Status :</label>
                                     <input
                                         className="form-control"
                                         value={vStatus || ""}
@@ -145,16 +159,13 @@ const UpdateVehicle = () => {
                         </div>
 
                     </div>
-                    <div className="card-footer" style={{ textAlign: "left" }}>
-                        <button type="submit" className="btn btn-primary">
-                            Submit
-                        </button>
-                        <Link to={"/vehicle"} className="btn btn-danger">
-                            Back
-                        </Link>
+                    <div>
+                        <button type="submit" className="submit">Update</button>
+                        <Link to={"/vehicle"} className="clear">Back</Link>
                     </div>
                 </div>
             </form>
+            </div>
         </div>
     );
 

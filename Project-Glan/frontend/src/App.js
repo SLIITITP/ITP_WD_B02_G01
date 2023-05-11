@@ -36,12 +36,18 @@ import LocationReport from "./pages/LocationReport";
 import CustomerListing from "./pages/CustomerListing";
 import AddCustomer from "./pages/AddCustomer";
 import UpdateCustomer from "./pages/UpdateCustomer";
+
 import VehicleReport from "./pages/VehicleReport";
 import EmployeeReport from "./pages/EmployeeReport";
 import CustomerReport from "./pages/CustomerReport";
 import TaskReport from "./pages/TaskReport";
 import TaskDashboard from "./pages/TaskDashboard";
 import LocationDashboard from "./pages/LocationDashboard";
+
+import AddFeedback from './pages/AddFeedback';
+import FeedbackListing from "./pages/FeedbackListing";
+import UpdateFeedback from "./pages/UpdateFeedback";
+
 
 
 function App() {
@@ -83,6 +89,10 @@ function App() {
             <Route path="/task/report" element={<TaskReport />} />
             <Route path="/taskDashboard" element={<TaskDashboard/>}/>\
             <Route path="/locationDashboard" element={<LocationDashboard/>}/>
+            <Route path="/itemlist" element={<ItemList />} />
+            <Route path="/feedback/add" element={<AddFeedback />} />
+            <Route path ="/viewFeedback" element={<FeedbackListing/>}/>
+            <Route path="/feedback/edit/:code" element={<UpdateFeedback />} />
             
       
           </Routes>

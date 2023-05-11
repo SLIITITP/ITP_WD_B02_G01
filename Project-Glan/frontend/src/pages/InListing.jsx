@@ -1,10 +1,20 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { FetchInvoiceList, Removeinvoice } from '../redux/actions/InvoiceAction'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom';
-//import "../components/Header_bar/Header_bar.css"
+import Header_bar_sales from "../components/Header_bar/Header_bar_sales";
+import "../pages/Content.css"
+import Table from 'react-bootstrap/Table';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FiEdit } from "react-icons/fi";
+import { FiTrash2} from "react-icons/fi";
+import { BiSearchAlt} from "react-icons/bi";
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 function InListing(props) {
+    const [searchTerm, setSearchTerm] = useState("");
+
     useEffect(() => {
         props.loadinvoice();
     }, [])
@@ -19,9 +29,33 @@ function InListing(props) {
         props.invoice.loading ? <div><h2>Loading....</h2></div> :
             props.invoice.errmessage ? <div><h2>{props.invoice.errmessage}</h2></div> :
               <div>
-                    <Link to={'/invoice/add'}>Add Invoice</Link>
-                    <table>
-                        <thead>
+                    <div><Header_bar_sales 
+                            fun1="Dashboard"
+                            fun2="Invoices"
+                            fun3="Credit Notes"
+                            fun4="Orders"
+                            fun5="Delivery Notes"
+                            fun6="Report"/>
+                    </div>
+                    <div className="search">
+                        <InputGroup className="mb-3">
+                            <InputGroup.Text id="basic-addon1"><BiSearchAlt/></InputGroup.Text>
+                            <Form.Control
+                                placeholder="Search"
+                                aria-label="Search"
+                                aria-describedby="basic-addon1"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                            />
+                            </InputGroup>
+                    </div>
+                    <div class="page_sub_header">
+                        <t class="sub_header_topic">View Invoices</t>
+                        <Link to="/invoice/add" className="page_link">Create</Link>
+                    </div>
+                    <div className="Content">
+                    <Table striped hover className="table">
+                        <thead className="theaderInvoice">
                             <tr>
                                 <th>Id</th>
                                 <th>Invoice Code</th>
@@ -39,11 +73,17 @@ function InListing(props) {
 
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody className="tbodyInvoice">
                             {
-                                props.invoice.invoicelist && props.invoice.invoicelist.map(item =>
+                                props.invoice.invoicelist && props.invoice.invoicelist
+                                .filter((item) =>
+                                item.iName.toLowerCase().includes(searchTerm.toLowerCase())||
+                                item.inCode.toLowerCase().includes(searchTerm.toLowerCase())||
+                                item.crDate.toLowerCase().includes(searchTerm.toLowerCase())
+                              )
+                                .map(item =>
                                     <tr key={item._id}>
-                                        <td>{item._id}</td>
+                                        <td className="nowrap">{item._id}</td>
                                         <td>{item.inCode}</td>
                                         <td>{item.iName}</td>
                                         <td>{item.Qty}</td>
@@ -54,19 +94,20 @@ function InListing(props) {
                                         <td>{item.inDis}</td>
                                         <td>{item.netTot}</td>
                                         <td>{item.crDate}</td>
-
                                         <td>
-                                            <Link to={'/invoice/edit/' + item._id}>Edit</Link>
-                                            <button onClick={() => { handledelete(item._id) }}>Delete</button>
-
+                                            <Link to={"/invoice/edit/" + item._id}><FiEdit size= "1.3rem" color="blue"/></Link>{" "}
+                                                <button onClick={() => {
+                                                     handledelete(item._id);
+                                            }} className="margin"><FiTrash2 size= "1.4rem" color="red"/></button>
                                         </td>
 
                                     </tr>
                                 )
                             }
                         </tbody>
-                    </table>
+                    </Table>
                     </div>
+                </div>
                 
     )
 }

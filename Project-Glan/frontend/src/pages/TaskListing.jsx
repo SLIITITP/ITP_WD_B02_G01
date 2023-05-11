@@ -1,10 +1,22 @@
 import { connect } from "react-redux";
 import { FetchTaskList, RemoveTask } from "../redux/actions/TaskAction";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Header_bar_menu from "../components/Header_bar/Header_bar_manu";
+import "../pages/Content.css"
+import Table from 'react-bootstrap/Table';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FiEdit } from "react-icons/fi";
+import { FiTrash2} from "react-icons/fi";
+import { BiSearchAlt} from "react-icons/bi";
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 
 const TaskListing = (props) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   useEffect(() => {
     props.loadtask();
   }, []);
@@ -27,15 +39,31 @@ const TaskListing = (props) => {
     </div>
   ) : (
     <div>
-      <div className="card">
-        <div className="card-header">
-          <Link to={"/task/add"} className="btn btn-success">
-            Create New Task [+]
-          </Link>
-        </div>
-        <div className="card-body">
-          <table className="table table-bordered">
-            <thead className="bg-dark text-white">
+      <div> <Header_bar_menu 
+                fun1="Dashboard"
+                fun2="Task"
+                fun7="Report"/>
+          </div>
+          <div className="search">
+          <InputGroup className="mb-3">
+            <InputGroup.Text id="basic-addon1"><BiSearchAlt/></InputGroup.Text>
+            <Form.Control
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="basic-addon1"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            </InputGroup>
+          </div>
+          <div class="page_sub_header">
+            <t class="sub_header_topic">View Tasks</t>
+            <Link to="/task/add" className="page_link">Create</Link>
+          </div>
+          <div className="Content">
+          <div>
+          <Table striped hover className="table">
+            <thead className="theaderManuf">
               <tr>
                 <td>Obj Id</td>
                 <td>Task Id</td>
@@ -44,43 +72,39 @@ const TaskListing = (props) => {
                 <td>Production Supervisor</td>
                 <td>Start Date</td>
                 <td>End Date</td>
-                <td>Status</td>
                 <td>Action</td>
               </tr>
             </thead>
-            <tbody>
+            <tbody className="tbodyManuf">
               {props.task.tasklist &&
-                props.task.tasklist.map((item) => (
+                props.task.tasklist 
+                .filter((item) =>
+                item.tId.toLowerCase().includes(searchTerm.toLowerCase())||
+                item.iName.toLowerCase().includes(searchTerm.toLowerCase())||
+                item.sDate.toLowerCase().includes(searchTerm.toLowerCase())||
+                item.prodSupe.toLowerCase().includes(searchTerm.toLowerCase())
+              )
+                .map((item) => (
                   <tr key={item._id}>
-                    <td>{item._id}</td>
+                    <td className="nowrap">{item._id}</td>
                     <td>{item.tId}</td>
                     <td>{item.iName}</td>
                     <td>{item.iQty}</td>
                     <td>{item.prodSupe}</td>
                     <td>{item.sDate}</td>
                     <td>{item.eDate}</td>
-                    <td>{item.tState}</td>
                     <td>
-                      <Link
-                        to={"/task/edit/" + item._id}
-                        className="btn btn-primary"
-                      >
-                        Edit
-                      </Link>{" "}
-                      |
-                      <button
-                        onClick={() => {
+                       <td>
+                        <Link to={"/task/edit/" + item._id}><FiEdit size= "1.3rem" color="blue" className="margin"/></Link>{" "}
+                        <button onClick={() => {
                           handleDelete(item._id);
-                        }}
-                        className="btn btn-danger"
-                      >
-                        Remove
-                      </button>
+                          }} className="margin"><FiTrash2 size= "1.4rem" color="red"/></button>
+                      </td>
                     </td>
                   </tr>
                 ))}
             </tbody>
-          </table>
+          </Table>
         </div>
       </div>
     </div>

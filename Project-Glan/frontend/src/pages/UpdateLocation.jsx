@@ -2,6 +2,9 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FetchLocationObj, LocationUpdate } from "../redux/actions/LocationAction";
+import Header_bar_loc from "../components/Header_bar/Header_bar_loc";
+import "../pages/Content.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const UpdateLocation = () => {
@@ -43,76 +46,82 @@ const UpdateLocation = () => {
 
     return (
         <div>
+              <div>  <Header_bar_loc 
+                        fun1="Dashboard"
+                        fun2="Location"
+                        fun7="Report"/>
+                </div>
+        <div className="search">
+        </div>
+        <div class="page_sub_header">
+        <t class="sub_header_topic">Update Location</t>
+        </div>
+        <div className="ContentForm ">
             <form onSubmit={handleSubmit}>
-                <div className="card">
-                    <div className="card-header" style={{ textAlign: "left" }}>
-                        <h2>Update Location</h2>
-                    </div>
                     <div className="card-body" style={{ textAlign: "left" }}>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>object Id :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">object Id :</label>
                                     <input className="form-control" value={_id || ''} disabled="disabled" />
                                 </div>
                             </div>
-                        </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Location Id :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Location Id :</label>
                                     <input className="form-control" value={itemID || ''} disabled="disabled" />
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Output Item Name :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Output Item Name :</label>
                                     <input className="form-control" value={itemName || ''} onChange={e => setitemName(e.target.value)} />
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Output Item Area :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Output Item Area :</label>
                                     <input className="form-control" value={area || ''} onChange={e => setarea(e.target.value)} />
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Output item quantity :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Output item quantity :</label>
                                     <input className="form-control" value={Qty || ''} onChange={e => setQty(e.target.value)} />
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>Output item Category :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">Output item Category :</label>
                                     <input className="form-control" value={Category || ''} onChange={e => setCategory(e.target.value)} />
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
-                            <div className="col-lg-12">
-                                <div className="form-group">
-                                    <label>item Description :</label>
+                        <div>
+                            <div>
+                                <div>
+                                    <label class="form">item Description :</label>
                                     <input className="form-control" value={Description || ''} onChange={e => setDescription(e.target.value)} />
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className="card-footer" style={{ textAlign: "left" }}>
-                        <button type="submit" className="btn btn-primary">Submit</button>
-                        <Link to={'/location'} className="btn btn-danger">Back</Link>
-
-                    </div>
+                     <div>
+                        <button type="submit" className="submit">Update</button>
+                        <Link to={"/location"} className="clear">Back</Link>
+            </div>
                 </div>
             </form>
+            </div>
         </div>
     );
 }

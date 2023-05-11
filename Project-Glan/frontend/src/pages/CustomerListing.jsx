@@ -1,11 +1,23 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FetchCustomerList, RemoveCustomer } from "../redux/actions/Customer";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { connect } from "react-redux";
+import Header_bar from "../components/Header_bar/Header_bar";
+import "../pages/Content.css"
+import Table from 'react-bootstrap/Table';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { FiEdit } from "react-icons/fi";
+import { FiTrash2} from "react-icons/fi";
+import { BiSearchAlt} from "react-icons/bi";
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+
 
 
 function CustomerListing(props) {
+  const [searchTerm, setSearchTerm] = useState("");
+
     useEffect(() => {
         props.loadcustomer();
       }, []);
@@ -17,7 +29,7 @@ function CustomerListing(props) {
           toast.success("Customer removed successfully");
         }
       };
-    
+
       return props.customer.loading ? (
         <div>
           <h2>Loading data...</h2>
@@ -28,67 +40,76 @@ function CustomerListing(props) {
         </div>
       ) : (
         <div>
-          <div className="card">
-          <div className="card-header" style={{ textAlign: "left" }}>
-              <h2>Create Customer</h2>
-            </div>
-            <div className="card-header">
-              <Link to={"/customer/add"} className="btn btn-success">
-                Create New Customer [+]
-              </Link>
-            </div>
-            <div className="card-body">
-              <table className="table table-bordered">
-                <thead className="bg-dark text-white">
-                  <tr>
-                    <td>Obj Id</td>
-                    <td>Customer Id</td>
-                    <td>Customer Name</td>
-                    <td>Email</td>
-                    <td>Address</td>
-                    <td>Date of Birthday</td>
-                    <td>Contact Number</td>
-                    <td>User Name</td>
-                    <td>Password</td>
-                    <td>Action</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  {props.customer.customerlist &&
-                    props.customer.customerlist.map((item) => (
-                      <tr key={item._id}>
-                        <td>{item._id}</td>
-                        <td>{item.cusId}</td>
-                        <td>{item.cusName}</td>
-                        <td>{item.email}</td>
-                        <td>{item.address}</td>
-                        <td>{item.dob}</td>
-                        <td>{item.conInfo}</td>
-                        <td>{item.user}</td>
-                        <td>{item.password}</td>
-                        <td>
-                          <Link
-                            to={"/customer/edit/" + item._id}
-                            className="btn btn-primary"
-                          >
-                            Edit
-                          </Link>{" "}
-                          |
-                          <button
-                            onClick={() => {
-                              handleDelete(item._id);
-                            }}
-                            className="btn btn-danger"
-                          >
-                            Remove
-                          </button>
-                        </td>
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-            </div>
+          <div>  <Header_bar 
+            fun1="Dashboard"
+            fun2="Customer"
+            fun3="Customer Privilege"
+            fun4="Customer Feedback"
+            fun5="Purchase History"
+            fun6="Notifications"
+            fun7="Report"/>
           </div>
+          <div className="search">
+          <InputGroup className="mb-3">
+            <InputGroup.Text id="basic-addon1"><BiSearchAlt/></InputGroup.Text>
+            <Form.Control
+                placeholder="Search"
+                aria-label="Search"
+                aria-describedby="basic-addon1"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            </InputGroup>
+          </div>
+          <div class="page_sub_header">
+            <t class="sub_header_topic">View Customers</t>
+            <Link to="/customer/add" className="page_link">Create</Link>
+          </div>
+            <div className="Content">
+                <Table striped hover className="table">
+                <thead className="theader">
+                <tr>
+                  <th>Object ID</th>
+                  <th>Customer ID</th>
+                  <th>Customer Name</th>
+                  <th>Email</th>
+                  <th>Address</th>
+                  <th>Date of Birthday</th>
+                  <th>Contact Number</th>
+                  <th>User Name</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody className="tbody">
+                  {props.customer.customerlist && 
+                  props.customer.customerlist
+                  .filter((item) =>
+                    item.cusName.toLowerCase().includes(searchTerm.toLowerCase())||
+                    item.cusId.toLowerCase().includes(searchTerm.toLowerCase())||
+                    item.address.toLowerCase().includes(searchTerm.toLowerCase())||
+                    item.dob.toLowerCase().includes(searchTerm.toLowerCase())
+                  )
+                  .map((item) => (
+                    <tr key={item._id}>
+                      <td className="nowrap">{item._id}</td>
+                      <td>{item.cusId}</td>
+                      <td>{item.cusName}</td>
+                      <td>{item.email}</td>
+                      <td>{item.address}</td>
+                      <td>{item.dob}</td>
+                      <td>{item.conInfo}</td>
+                      <td>{item.user}</td>
+                      <td>
+                        <Link to={"/customer/edit/" + item._id}><FiEdit size= "1.3rem" color="blue"/></Link>{" "}
+                        <button onClick={() => {
+                          handleDelete(item._id);
+                          }} className="margin"><FiTrash2 size= "1.4rem" color="red"/></button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+           </div>
         </div>
       );
 }

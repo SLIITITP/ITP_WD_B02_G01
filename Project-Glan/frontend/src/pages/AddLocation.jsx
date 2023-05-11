@@ -2,6 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { CreateLocation } from "../redux/actions/LocationAction";
+import Header_bar_loc from "../components/Header_bar/Header_bar_loc";
+import "../pages/Content.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddLocation = () => {
   const [itemID , setitemID] = useState('');
@@ -23,68 +26,65 @@ const AddLocation = () => {
 
   return (
     <div>
+        <div>  <Header_bar_loc 
+          fun1="Dashboard"
+          fun2="Location"
+          fun7="Report"/>
+        </div>
+        <div className="search">
+        </div>
+        <div class="page_sub_header">
+        <t class="sub_header_topic">Create Location</t>
+        </div>
+        <div className="ContentForm ">
       <form onSubmit={handleSubmit}>
-        <div className="card">
-          <div className="card-header" style={{ textAlign: "left" }}>
-            <h2>Add Location</h2>
-          </div>
-          <div className="card-body" style={{ textAlign: "left" }}>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Item Id :</label>
+            <div>
+              <div>
+                <div>
+                  <label className="form">Item Id :</label>
                   <input className="form-control" value={itemID} onChange={e => setitemID(e.target.value)} />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
+                <div class="form">
                   <label>Enter new Item Name :</label>
                   <input className="form-control" value={itemName} onChange={e => setitemName(e.target.value)} />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
+            
+                <div className="form">
                   <label>Enter new Item Area :</label>
                   <input className="form-control" value={area} onChange={e => setarea(e.target.value)} />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
+             
+            
+                <div className="form">
                   <label>Enter new item quantity :</label>
                   <input className="form-control" value={Qty} onChange={e => setQty(e.target.value)} />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
+              
+           
+                <div className="form">
                   <label>Enter new item Category :</label>
                   <input className="form-control" value={Category} onChange={e => setCategory(e.target.value)} />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
+             
+           
+                <div className="form">
                   <label>Enter new Description :</label>
                   <input className="form-control" value={Description} onChange={e => setDescription(e.target.value)} />
                 </div>
-              </div>
+             
             </div>
-          </div>
-          <div className="card-footer" style={{ textAlign: "left" }}>
+          {/* <div className="card-footer" style={{ textAlign: "left" }}>
             <button type="submit" className="btn btn-primary">Submit</button>
             <Link to={'/task'} className="btn btn-danger">Back</Link>
 
-          </div>
+          </div> */}
+          <div>
+              <button type="submit" className="submit">Submit</button>
+              <Link to={"/location"} className="clear">Back</Link>
+            </div>
         </div>
       </form>
+      </div>
     </div>
   );
 }

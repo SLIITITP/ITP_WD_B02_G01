@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FetchEmpObj, empupdate } from "../redux/actions/employeeAction";
+import Header_bar_emp from "../components/Header_bar/Header_bar_emp";
+import "../pages/Content.css"
 
 const UpdateEmp = () => {
   const [_id, setID] = useState(0);
@@ -38,82 +40,88 @@ const UpdateEmp = () => {
     e.preventDefault();
     const empobj = { _id, empId, Name, nic, dob, address, contactInfo };
     dispatch(empupdate(_id, empobj));
-    navigate('/');
+    navigate('/emp');
   }
 
   return (
     <div>
+            <div>  <Header_bar_emp 
+                fun1="Dashboard"
+                fun2="Employee"
+                fun7="Report"/>
+            </div>
+        <div className="search">
+        </div>
+        <div class="page_sub_header">
+        <t class="sub_header_topic">Update Employee</t>
+        </div>
+        <div className="ContentForm ">
       <form onSubmit={handleSubmit}>
-        <div className="card">
-          <div className="card-header" style={{ textAlign: "left" }}>
-            <h2>Update Employee Details</h2>
-          </div>
-          <div className="card-body" style={{ textAlign: "left" }}>
-          <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Code :</label>
+
+          <div>
+              <div>
+                <div>
+                  <label class="form">Code :</label>
                   <input className="form-control" value={_id} disabled="disabled" />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Employee Id :</label>
+
+            <div>
+              <div>
+                <div>
+                  <label class="form">Employee Id :</label>
                   <input className="form-control" value={empId} disabled="disabled" />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Employee Name :</label>
+            <div>
+              <div>
+                <div>
+                  <label class="form">Employee Name :</label>
                   <input className="form-control" value={Name} onChange={e => setName(e.target.value)} />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>NIC :</label>
+            <div>
+              <div>
+                <div>
+                  <label class="form">NIC :</label>
                   <input className="form-control" value={nic} onChange={e => setNic(e.target.value)} />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Date of Birth :</label>
+            <div>
+              <div>
+                <div>
+                  <label class="form">Date of Birth :</label>
                   <input className="form-control" value={dob} onChange={e => setDob(e.target.value)} />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Employee Address :</label>
+            <div>
+              <div>
+                <div>
+                  <label class="form">Employee Address :</label>
                   <input className="form-control" value={address} onChange={e => setAddress(e.target.value)} />
                 </div>
               </div>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Employee Mobile Number :</label>
+            <div>
+              <div>
+                <div>
+                  <label class="form">Employee Mobile Number :</label>
                   <input className="form-control" value={contactInfo} onChange={e => setContactInfo(e.target.value)} />
                 </div>
               </div>
             </div>
 
           </div>
-          <div className="card-footer" style={{ textAlign: "left" }}>
-            <button type="submit" className="btn btn-primary">Submit</button>
-            <Link to={'/emp'} className="btn btn-danger">Back</Link>
-
-          </div>
+           <div>
+              <button type="submit" className="submit">Update</button>
+              <Link to={"/emp"} className="clear">Back</Link>
+            </div>
         </div>
       </form>
+      </div>
     </div>
   );
 }

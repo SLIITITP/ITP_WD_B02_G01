@@ -1,30 +1,31 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { CreateCustomer } from "../redux/actions/Customer";
+import { CreateFeedback } from "../redux/actions/Feedback";
 import Header_bar from "../components/Header_bar/Header_bar";
 import "../pages/Content.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-function AddCustomer() {
 
-    const [cusId, setcusId] = useState("");
+function AddFeedback() {
+
+    const [fid, setfid] = useState("");
     const [cusName, setcusName] = useState("");
-    const [email, setemail] = useState("");
-    const [address, setaddress] = useState("");
-    const [dob, setdob] = useState("");
-    const [conInfo, setconInfo] = useState("");
-    const [user, setuser] = useState("");
-    const [password, setpassword] = useState("");
+    const [date, setdate] = useState("");
+    const [feed, setfeed] = useState("");
+    const [response, setresponse] = useState("");
+    const [status, setstatus] = useState("");
+    const [assign, setassign] = useState("");
   
     const dispatch = useDispatch();
     const navigate = useNavigate();
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      const customerobj = { cusId, cusName, email,address, dob, conInfo,user,password };
-      dispatch(CreateCustomer(customerobj));
-      navigate("/viewCustomer");
+      const feedbackobj = {  fid, cusName, date,feed, response, status,assign};
+      dispatch(CreateFeedback(feedbackobj));
+
+      navigate("/viewFeedback");
     };
   
     return (
@@ -48,11 +49,11 @@ function AddCustomer() {
           <div>
             <div>
                   <div>
-                    <label class="form">Customer Id :</label>
+                    <label class="form">Feedback Id :</label>
                     <input
                       className="form-control"
-                      value={cusId}
-                      onChange={(e) => setcusId(e.target.value)}
+                      value={fid}
+                      onChange={(e) => setfid(e.target.value)}
                     />
                   </div>
                   <div >
@@ -64,58 +65,51 @@ function AddCustomer() {
                     />
                   </div>
                   <div>
-                    <label  class="form">Customer Email:</label>
+                    <label  class="form">Create Date :</label>
                     <input
+                      type="date"
                       className="form-control"
-                      value={email}
-                      onChange={(e) => setemail(e.target.value)}
+                      value={date}
+                      onChange={(e) => setdate(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label  class="form">Customer Address :</label>
+                    <label  class="form">Feedback :</label>
                     <input
                       className="form-control"
-                      value={address}
-                      onChange={(e) => setaddress(e.target.value)}
+                      value={feed}
+                      onChange={(e) => setfeed(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label  class="form">Date of birth :</label>
+                    <label  class="form">Response :</label>
                     <input
-                      type="d"
                       className="form-control"
-                      value={dob}
-                      onChange={(e) => setdob(e.target.value)}
+                      value={response}
+                      onChange={(e) => setresponse(e.target.value)}
+                    />
+                  </div>
+                  
+                  <div>
+                    <label  class="form">Status:</label>
+                    <input
+                      className="form-control"
+                      value={status}
+                      onChange={(e) => setstatus(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label  class="form">Mobile Number:</label>
+                    <label  class="form">Assign :</label>
                     <input
                       className="form-control"
-                      value={conInfo}
-                      onChange={(e) => setconInfo(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label  class="form">User Name :</label>
-                    <input
-                      className="form-control"
-                      value={user}
-                      onChange={(e) => setuser(e.target.value)}
-                    />
-                  </div>
-                  <div>
-                    <label  class="form">User Password :</label>
-                    <input
-                      className="form-control"
-                      value={password}
-                      onChange={(e) => setpassword(e.target.value)}
+                      value={assign}
+                      onChange={(e) => setassign(e.target.value)}
                     />
                   </div>
             </div>
             <div>
               <button type="submit" className="submit">Submit</button>
-              <Link to={"/viewCustomer"} className="clear">Back</Link>
+              <Link to={"/viewFeedback"} className="clear">Back</Link>
             </div>
           </div>
         </form>
@@ -124,4 +118,4 @@ function AddCustomer() {
     );
 }
 
-export default AddCustomer
+export default AddFeedback

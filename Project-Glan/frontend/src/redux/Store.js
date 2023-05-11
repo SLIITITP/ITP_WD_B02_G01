@@ -5,7 +5,7 @@ import CustomerReducer from "./reducers/customerReducers";
 import thunk from "redux-thunk";
 import logger from "redux-logger";
 import VehicleReducer from "./reducers/VehicleReducers";
-
+import FeedbackReducer from "./reducers/feedbackReducers";
 import LocationReducer from "./reducers/locationReducers";
 import EmployeeReducer from "./reducers/employeeReducer";
 import InvoiceReducer from "./reducers/invoiceReducers";
@@ -16,7 +16,8 @@ const rootreducer = combineReducers({
     emp: EmployeeReducer,
     invoice: InvoiceReducer,
     vehicle: VehicleReducer,
-    customer: CustomerReducer
+    customer: CustomerReducer,
+    feedback: FeedbackReducer
 });
 const Store = configureStore({
     reducer: rootreducer,

@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FetchItemObj, UpdateItem } from "../redux/actions/ItemActions";
+import Header_bar_inv from "../components/Header_bar/Header_bar_inv";
+import "../pages/Content.css"
 
 const Updateitem = () => {
   const [_id, set_id] = useState(0);
@@ -45,20 +47,32 @@ const Updateitem = () => {
       itemdescript,
     };
     dispatch(UpdateItem(_id, itemobj));
-    navigate("/ItemDashboard");
+    navigate("/itemlist");
   };
 
   return (
     <div>
-      <div className="Content">
-        <h1>Additem</h1>
-        <section className="form">
+        <div>  <Header_bar_inv 
+                fun1="Dashboard"
+                fun2="Items"
+                fun3="Raw Materials"
+                fun4="Damage or Return Products"
+                fun5="Suppliers"
+                fun6="Report"/>
+        </div>
+        <div className="search">
+        </div>
+        <div class="page_sub_header">
+        <t class="sub_header_topic">Update Item</t>
+        </div>
+      <div className="ContentForm">
+        <section>
           <form onSubmit={handleSubmit}>
-            <div className="form-group">
-              <lable className="form-group label">Item Code : </lable>
+            <div >
+              <lable class="form">Item Code : </lable>
               <input
                 type="text"
-                className="form-group text"
+                className="form-control"
                 id="itemcode"
                 name="itemcode"
                 value={itemcode}
@@ -66,11 +80,11 @@ const Updateitem = () => {
                 onChange={(e) => setitemcode(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <lable className="form-group label">Item Name : </lable>
+            <div >
+              <lable class="form">Item Name : </lable>
               <input
                 type="text"
-                className="form-group text"
+                className="form-control"
                 id="itemname"
                 name="itemname"
                 value={itemname}
@@ -78,11 +92,11 @@ const Updateitem = () => {
                 onChange={(e) => setitemname(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <lable className="form-group label">Unit Price : </lable>
+            <div>
+              <lable class="form">Unit Price : </lable>
               <input
                 type="text"
-                className="form-group text"
+                className="form-control"
                 id="unitprice"
                 name="unitprice"
                 value={unitprice}
@@ -90,11 +104,11 @@ const Updateitem = () => {
                 onChange={(e) => setunitprice(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <lable className="form-group label">quantity : </lable>
+            <div>
+              <lable class="form">quantity : </lable>
               <input
                 type="text"
-                className="form-group text"
+                className="form-control"
                 id="quantity"
                 name="quantity"
                 value={quantity}
@@ -102,11 +116,11 @@ const Updateitem = () => {
                 onChange={(e) => setquantity(e.target.value)}
               />
             </div>
-            <div className="form-group">
-              <lable className="form-group label">item description : </lable>
+            <div>
+              <lable class="form">item description : </lable>
               <input
                 type="textarea"
-                className="form-group textareas"
+                className="form-control"
                 id="itemdescript"
                 name="itemdescript"
                 value={itemdescript}
@@ -117,7 +131,7 @@ const Updateitem = () => {
               Submit
             </button>
             <Link
-              to={"/ItemDashboard"}
+              to={"/itemlist"}
               style={{ textDecoration: "none" }}
               className="clear"
             >

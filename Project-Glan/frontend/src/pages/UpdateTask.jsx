@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { FetchTaskObj, TaskUpdate } from "../redux/actions/TaskAction";
+import Header_bar_manu from "../components/Header_bar/Header_bar_manu";
+import "../pages/Content.css"
 
 const UpdateTask = () => {
   const [_id, set_id] = useState(0);
@@ -11,7 +13,6 @@ const UpdateTask = () => {
   const [prodSupe, setProdSupe] = useState("");
   const [sDate, setSDate] = useState("");
   const [eDate, setEDate] = useState("");
-  const [tState, setTState] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -32,101 +33,91 @@ const UpdateTask = () => {
       setProdSupe(taskobj.prodSupe);
       setSDate(taskobj.sDate);
       setEDate(taskobj.eDate);
-      setTState(taskobj.tState);
     }
   }, [taskobj]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const taskobj = { _id, tId, iName, iQty, prodSupe, sDate, eDate,tState };
+    const taskobj = { _id, tId, iName, iQty, prodSupe, sDate, eDate };
     dispatch(TaskUpdate(_id, taskobj));
     navigate("/task");
   };
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
-        <div className="card">
-          <div className="card-header" style={{ textAlign: "left" }}>
-            <h2>Update Task</h2>
-          </div>
-          <div className="card-body" style={{ textAlign: "left" }}>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Obj Id :</label>
+      <div>  <Header_bar_manu 
+                fun1="Dashboard"
+                fun2="Task"
+                fun7="Report"/>
+        </div>
+        <div className="search">
+        </div>
+        <div class="page_sub_header">
+        <t class="sub_header_topic">Update Task</t>
+        </div>
+        <div className="ContentForm ">
+        <form onSubmit={handleSubmit}>
+        <div >
+          <div>
+                <div>
+                  <label  >Obj Id :</label>
                   <input
                     className="form-control"
                     value={_id || ""}
                     disabled="disabled"
                   />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Task Id :</label>
+                <div>
+                  <label class="form">Task Id :</label>
                   <input
                     className="form-control"
                     value={tId || ""}
                     disabled="disabled"
                   />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Output Item Name :</label>
+
+                <div>
+                  <label class="form">Output Item Name :</label>
                   <input
                     className="form-control"
                     value={iName || ""}
                     onChange={(e) => setIname(e.target.value)}
                   />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Output Item Quantity :</label>
+              
+            
+                <div>
+                  <label class="form">Output Item Quantity :</label>
                   <input
                     className="form-control"
                     value={iQty || ""}
                     onChange={(e) => setIqty(e.target.value)}
                   />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Production Supervisor :</label>
+              
+            
+                <div>
+                  <label class="form">Production Supervisor :</label>
                   <input
                     className="form-control"
                     value={prodSupe || ""}
                     onChange={(e) => setProdSupe(e.target.value)}
                   />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Start Date :</label>
+             
+           
+                <div>
+                  <label class="form">Start Date :</label>
                   <input
                     className="form-control"
                     value={sDate || ""}
                     onChange={(e) => setSDate(e.target.value)}
                   />
                 </div>
-              </div>
-            </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>End Date :</label>
+             
+           
+                <div >
+                  <label class="form">End Date :</label>
                   <input
                     className="form-control"
                     value={eDate || ""}
@@ -134,30 +125,13 @@ const UpdateTask = () => {
                   />
                 </div>
               </div>
+            <div>
+              <button type="submit" className="submit">Update</button>
+              <Link to={"/task"} className="clear">Back</Link>
             </div>
-            <div className="row">
-              <div className="col-lg-12">
-                <div className="form-group">
-                  <label>Task Status :</label>
-                  <input
-                    className="form-control"
-                    value={tState || ""}
-                    onChange={(e) => setTState(e.target.value)}
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="card-footer" style={{ textAlign: "left" }}>
-            <button type="submit" className="btn btn-primary">
-              Update
-            </button>
-            <Link to={"/task"} className="btn btn-danger">
-              Back
-            </Link>
-          </div>
         </div>
       </form>
+      </div>
     </div>
   );
 };

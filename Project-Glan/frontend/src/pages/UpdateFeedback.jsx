@@ -1,50 +1,50 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate, useParams } from 'react-router-dom';
-import { CustomerUpdate, FetchCustomerObj } from '../redux/actions/Customer';
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { FeedbackUpdate, FetchFeedbackObj } from "../redux/actions/Feedback";
+import { useEffect, useState } from "react";
 import Header_bar from "../components/Header_bar/Header_bar";
 import "../pages/Content.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-function UpdateCustomer() {
+
+function UpdateFeedback() {
     const [_id, set_id] = useState(0);
-    const [cusId, setcusId] = useState();
-    const [cusName, setcusNam] = useState("");
-    const [email, setemail] = useState("");
-    const [address, setaddress] = useState("");
-    const [dob, setdob] = useState("");
-    const [conInfo, setconInfo] = useState("");
-    const [user, setuser] = useState("");
-    const [password, setpassword] = useState("");
+    const [fid, setfid] = useState();
+    const [cusName, setcusName] = useState("");
+    const [date, setdate] = useState("");
+    const [feed, setfeed] = useState("");
+    const [response, setresponse] = useState("");
+    const [status, setstatus] = useState("");
+    const [assign, setassign] = useState("");
   
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const { code } = useParams();
   
-    const customerobj = useSelector((state) => state.customer.customerobj);
+    const feedbackobj = useSelector((state) => state.feedback.feedbackobj);
   
     useEffect(() => {
-      dispatch(FetchCustomerObj(code));
+      dispatch(FetchFeedbackObj(code));
     }, []);
   
     useEffect(() => {
-      if (customerobj) {
-        set_id(customerobj._id);
-        setcusId(customerobj.cusId);
-        setcusNam(customerobj.cusName);
-        setemail(customerobj.email);
-        setaddress(customerobj.address);
-        setdob(customerobj.dob);
-        setconInfo(customerobj.conInfo);
-        setuser(customerobj.user);
-        setpassword(customerobj.password);
+      if (feedbackobj) {
+        set_id(feedbackobj._id);
+        setfid(feedbackobj.fid);
+        setcusName(feedbackobj.cusName);
+        setdate(feedbackobj.date);
+        setfeed(feedbackobj.feed);
+        setresponse(feedbackobj.response);
+        setstatus(feedbackobj.status);
+        setassign(feedbackobj.assign);
       }
-    }, [customerobj]);
+    }, [feedbackobj]);
   
     const handleSubmit = (e) => {
       e.preventDefault();
-      const customerobj = { _id, cusId, cusName, email, address, dob, conInfo, user, password };
-      dispatch(CustomerUpdate(_id, customerobj));
-      navigate("/viewCustomer");
+      const feedbackobj = { _id, fid, cusName, date,feed, response, status,assign};
+      dispatch(FeedbackUpdate(_id, feedbackobj));
+      navigate("/viewFeedback");
     };
   
     return (
@@ -77,10 +77,10 @@ function UpdateCustomer() {
                     />
                   </div>
                   <div className="form-group">
-                    <label class="form">Customer Id :</label>
+                    <label class="form">Feedback Id :</label>
                     <input
                       className="form-control"
-                      value={cusId || ""}
+                      value={fid || ""}
                       disabled="disabled"
                     />
                   </div>
@@ -89,60 +89,60 @@ function UpdateCustomer() {
                     <input
                       className="form-control"
                       value={cusName || ""}
-                      onChange={(e) => setcusNam(e.target.value)}
+                      disabled="disabled"
                     />
                   </div>
                   <div className="form-group">
-                    <label class="form">Customer Email :</label>
+                    <label class="form">Create Date :</label>
                     <input
                       className="form-control"
-                      value={email || ""}
-                      onChange={(e) => setemail(e.target.value)}
+                      value={date || ""}
+                      disabled="disabled"
                     />
                   </div>
              
                   <div className="form-group">
-                    <label class="form">Customer Address :</label>
+                    <label class="form">Feedback :</label>
                     <input
                       className="form-control"
-                      value={address || ""}
-                      onChange={(e) => setaddress(e.target.value)}
+                      value={feed || ""}
+                      disabled="disabled"
                     />
                   </div>
            
                   <div className="form-group">
-                    <label class="form">Date of Birth :</label>
+                    <label class="form">Response :</label>
                     <input
                       type="date"
                       className="form-control"
-                      value={dob || ""}
-                      onChange={(e) => setdob(e.target.value)}
+                      value={response || ""}
+                      onChange={(e) => setresponse(e.target.value)}
                     />
                   </div>
               
               
                   <div className="form-group">
-                    <label class="form">Mobile Number :</label>
+                    <label class="form">Status :</label>
                     <input
                       className="form-control"
-                      value={conInfo || ""}
-                      onChange={(e) => setconInfo(e.target.value)}
+                      value={status || ""}
+                      onChange={(e) => setstatus(e.target.value)}
                     />
                   </div>
               
               
                   <div className="form-group">
-                    <label class="form">User Name :</label>
+                    <label class="form">Assign :</label>
                     <input
                       className="form-control"
-                      value={user || ""}
-                      onChange={(e) => setuser(e.target.value)}
+                      value={assign || ""}
+                      onChange={(e) => setassign(e.target.value)}
                     />
                   </div>
             </div>
             <div>
               <button type="submit" className="submit">Update</button>
-              <Link to={"/viewCustomer"} className="clear">Back</Link>
+              <Link to={"/viewFeedback"} className="clear">Back</Link>
             </div>
           </div>
         </form>
@@ -151,4 +151,4 @@ function UpdateCustomer() {
     );
 }
 
-export default UpdateCustomer
+export default UpdateFeedback

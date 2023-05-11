@@ -2,7 +2,9 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { CreateVehicle } from "../redux/actions/VehicleAction";
-
+import Header_bar_vehi from "../components/Header_bar/Header_bar_vehi";
+import "../pages/Content.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AddVehicle = () => {
  
@@ -25,28 +27,36 @@ const AddVehicle = () => {
   
     return (
       <div>
+        <div>  <Header_bar_vehi 
+                fun1="Dashboard"
+                fun2="Vehicles"
+                fun3="Orders"
+                fun4="Quotes"
+                fun5="Warehouse"
+                fun6="Releases"
+                fun7="Report"/>
+        </div>
+        <div className="search">
+        </div>
+        <div class="page_sub_header">
+        <t class="sub_header_topic">Create Vehicle User</t>
+        </div>
+        <div className="ContentForm ">
         <form onSubmit={handleSubmit}>
-          <div className="card">
-            <div className="card-header" style={{ textAlign: "left" }}>
-              <h2>Add user</h2>
-            </div>
-            <div className="card-body" style={{ textAlign: "left" }}>
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="form-group">
-                    <label>Vehicle Type:</label>
+              <div>
+                <div>
+                  <div>
+                    <label  class="form">Vehicle Type:</label>
                     <input
                       className="form-control"
                       value={vType}
                       onChange={(e) => setVtype(e.target.value)}
                     />
                   </div>
-                </div>
-              </div>
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="form-group">
-                    <label>Vehicle NumPlate :</label>
+              <div>
+                <div>
+                  <div>
+                    <label  class="form">Vehicle NumPlate :</label>
                     <input
                       className="form-control"
                       value={numPlate}
@@ -55,10 +65,10 @@ const AddVehicle = () => {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="form-group">
-                    <label>Vehicle Insurance :</label>
+              <div>
+                <div>
+                  <div>
+                    <label class="form">Vehicle Insurance :</label>
                     <input
                       className="form-control"
                       value={insurance}
@@ -67,10 +77,10 @@ const AddVehicle = () => {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="form-group">
-                    <label>Vehicle Capacity:</label>
+              <div>
+                <div>
+                  <div>
+                    <label class="form">Vehicle Capacity:</label>
                     <input
                       className="form-control"
                       value={capacity}
@@ -79,10 +89,10 @@ const AddVehicle = () => {
                   </div>
                 </div>
               </div>
-              <div className="row">
-                <div className="col-lg-12">
-                  <div className="form-group">
-                    <label>Vehicle Status :</label>
+              <div>
+                <div>
+                  <div>
+                    <label class="form">Vehicle Status :</label>
                     <input
                       className="form-control"
                       value={vStatus}
@@ -93,16 +103,13 @@ const AddVehicle = () => {
               </div>
              
             </div>
-            <div className="card-footer" style={{ textAlign: "left" }}>
-              <button type="submit" className="btn btn-primary">
-                Submit
-              </button>
-              <Link to={"/vehicle"} className="btn btn-danger">
-                Back
-              </Link>
+             <div>
+              <button type="submit" className="submit">Submit</button>
+              <Link to={"/vehicle"} className="clear">Back</Link>
             </div>
           </div>
         </form>
+        </div>
       </div>
     );
 

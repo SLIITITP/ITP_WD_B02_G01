@@ -100,9 +100,21 @@ const deleteFeed = asyncHandler(async(req, res) => {
     // });
 })
 
+//get one feedback
+const getFeedbackById = asyncHandler(async(req, res) => {
+    const feedback = await Feedback.findById(req.params.id);
+    if (!feedback) {
+        res.status(401);
+        throw new Error("Customer Feedback not Found");
+    }
+
+    res.status(200).json(feedback);
+})
+
 module.exports = {
     getFeed,
     setFeed,
     updateFeed,
-    deleteFeed
+    deleteFeed,
+    getFeedbackById
 };
