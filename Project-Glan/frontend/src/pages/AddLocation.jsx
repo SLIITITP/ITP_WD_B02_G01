@@ -53,9 +53,9 @@ const AddLocation = () => {
                 <label>Enter new Item Area :</label>
                 <select className="form-control" value={area} onChange={e => setarea(e.target.value)} >
                   <option value="">Select...</option>
-                  <option value="zone a">zone a</option>
-                  <option value="zone b">zone b</option>
-                  <option value="zone c">zone c</option>
+                  <option value="Zone A">Zone A</option>
+                  <option value="Zone B">Zone B</option>
+                  <option value="Zone C">Zone C</option>
                 </select>
               </div>
 
