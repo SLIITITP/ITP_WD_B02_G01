@@ -72,8 +72,10 @@ const ItemListing = (props) => {
         </div>
         <div className="Content">
           <div ref={conponentPDF} style={{ width: "100%" }}>
-            <h2>Glan International</h2>
-            <h4>Pvt Limited</h4>
+          <h4>Glan International Pvt Limited</h4>
+          <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
+          <h6>glaninternational@gmail.com</h6>
+          <center><h4>Item List Report</h4></center>
             <h5></h5>
             <hr />
             <Table striped hover className="table">

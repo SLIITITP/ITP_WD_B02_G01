@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { FetchLocationList , RemoveLocation } from "../redux/actions/LocationAction"
+import { FetchLocationList, RemoveLocation } from "../redux/actions/LocationAction"
 import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { toast } from "react-toastify"
@@ -8,8 +8,8 @@ import "../pages/Content.css"
 import Table from 'react-bootstrap/Table';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FiEdit } from "react-icons/fi";
-import { FiTrash2} from "react-icons/fi";
-import { BiSearchAlt} from "react-icons/bi";
+import { FiTrash2 } from "react-icons/fi";
+import { BiSearchAlt } from "react-icons/bi";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 
@@ -19,7 +19,7 @@ const LocationListing = (props) => {
 
   useEffect(() => {
     props.loadlocation();
-  },[])
+  }, [])
 
   const handleDelete = (code) => {
     if (window.confirm("Remove item ?")) {
@@ -35,46 +35,51 @@ const LocationListing = (props) => {
       props.location.errmessage ? <div><h2>{props.location.errmessage}</h2></div> :
 
         <div>
-          <div>  <Header_bar_loc 
-                    fun1="Dashboard"
-                    fun2="Location"
-                    fun7="Report"/>
+          <div>  <Header_bar_loc
+            fun1="Dashboard"
+            fun2="Vehicles"
+            fun3="Orders"
+            fun4="Quotes"
+            fun5="Warehouse"
+            fun6="Releases"
+            fun7="Report"
+             />
           </div>
           <div className="search">
-          <InputGroup className="mb-3">
-            <InputGroup.Text id="basic-addon1"><BiSearchAlt/></InputGroup.Text>
-            <Form.Control
+            <InputGroup className="mb-3">
+              <InputGroup.Text id="basic-addon1"><BiSearchAlt /></InputGroup.Text>
+              <Form.Control
                 placeholder="Search"
                 aria-label="Search"
                 aria-describedby="basic-addon1"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-            />
+              />
             </InputGroup>
           </div>
-        <div class="page_sub_header">
-          <t class="sub_header_topic">View Locations</t>
-          <Link to="/location/add" className="page_link">Create</Link>
-        </div>
+          <div class="page_sub_header">
+            <t class="sub_header_topic">View Locations</t>
+            <Link to="/location/add" className="page_link">Create</Link>
+          </div>
           <div className="Content">
-              <Table striped hover className="table">
-                <thead className="theader">
-                  <tr>
-                    <td>Item ID</td>
-                    <td>Item Name</td>
-                    <td>Item Area</td>
-                    <td>Item Quantity</td>
-                    <td>Item Category</td>
-                    <td>Item Description</td>
-                    <td>Action</td>
-                  </tr>
-                </thead>
-                <tbody className="tbody">
-                  {props.location.locationlists && props.location.locationlists
+            <Table striped hover className="table">
+              <thead className="theader">
+                <tr>
+                  <td>Item ID</td>
+                  <td>Item Name</td>
+                  <td>Item Area</td>
+                  <td>Item Quantity</td>
+                  <td>Item Category</td>
+                  <td>Item Description</td>
+                  <td>Action</td>
+                </tr>
+              </thead>
+              <tbody className="tbody">
+                {props.location.locationlists && props.location.locationlists
                   .filter((item) =>
-                    item.itemName.toLowerCase().includes(searchTerm.toLowerCase())||
+                    item.itemName.toLowerCase().includes(searchTerm.toLowerCase()) ||
                     item.Category.toLowerCase().includes(searchTerm.toLowerCase())
-                 )
+                  )
                   .map(item =>
                     <tr key={item._id}>
                       <td>{item.itemID}</td>
@@ -84,18 +89,18 @@ const LocationListing = (props) => {
                       <td>{item.Category}</td>
                       <td>{item.Description}</td>
                       <td>
-                        <Link to={"/location/edit/" + item._id}><FiEdit size= "1.3rem" color="blue"/></Link>{" "}
+                        <Link to={"/location/edit/" + item._id}><FiEdit size="1.3rem" color="blue" /></Link>{" "}
                         <button onClick={() => {
                           handleDelete(item._id);
-                          }} className="margin"><FiTrash2 size= "1.4rem" color="red"/></button>
+                        }} className="margin"><FiTrash2 size="1.4rem" color="red" /></button>
                       </td>
 
                     </tr>
                   )}
-                </tbody>
-              </Table>
-            </div>
+              </tbody>
+            </Table>
           </div>
+        </div>
   );
 }
 
