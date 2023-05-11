@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { AddItem } from "../redux/actions/ItemActions";
 import Header_bar_inv from "../components/Header_bar/Header_bar_inv";
-import "../pages/Content.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "../pages/Content.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Additem = () => {
   const [itemcode, setitemcode] = useState("");
@@ -33,19 +33,21 @@ const Additem = () => {
 
   return (
     <div>
-      <div>  <Header_bar_inv 
+      <div>
+        {" "}
+        <Header_bar_inv
           fun1="Dashboard"
           fun2="Items"
           fun3="Raw Materials"
           fun4="Damage or Return Products"
           fun5="Suppliers"
-          fun6="Report"/>
-        </div>
-        <div className="search">
-        </div>
-        <div class="page_sub_header">
+          fun6="Report"
+        />
+      </div>
+      <div className="search"></div>
+      <div class="page_sub_header">
         <t class="sub_header_topic">Create Item</t>
-        </div>
+      </div>
       <div className="ContentForm ">
         <section>
           <form onSubmit={onSubmit}>
@@ -101,17 +103,7 @@ const Additem = () => {
                 onChange={(e) => setquantity(e.target.value)}
               />
             </div>
-            <div>
-              <lable class="form">item image : </lable>
-              <input
-                type="file"
-                className="form-group image"
-                id="itemimage"
-                name="itemimage"
-                value={itemimage}
-                onChange={(e) => setitemimage(e.target.value)}
-              />
-            </div>
+
             <div>
               <lable class="form">item description : </lable>
               <input
@@ -123,8 +115,12 @@ const Additem = () => {
                 onChange={(e) => setitemdescript(e.target.value)}
               />
             </div>
-            <button type="submit" className="submit">Submit</button>
-              <Link to={"/itemlist"} className="clear">Back</Link>
+            <button type="submit" className="submit">
+              Submit
+            </button>
+            <Link to={"/itemlist"} className="clear">
+              Back
+            </Link>
           </form>
         </section>
       </div>
