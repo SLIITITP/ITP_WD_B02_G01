@@ -26,6 +26,7 @@ import VehicleDashboard from "./pages/VehicleDashboard";
 import AddInv from "./pages/AddInv";
 import UpdateInv from "./pages/UpdateInv";
 import InListing from "./pages/InListing";
+import InvoiceReport from "./pages/InvoiceReport";
 
 import Dashboard from "./pages/Dashboard";
 import Locationlisting from "./pages/LocationListing";
@@ -44,15 +45,12 @@ import TaskReport from "./pages/TaskReport";
 import TaskDashboard from "./pages/TaskDashboard";
 import LocationDashboard from "./pages/LocationDashboard";
 
-import AddFeedback from './pages/AddFeedback';
+import AddFeedback from "./pages/AddFeedback";
 import FeedbackListing from "./pages/FeedbackListing";
 import UpdateFeedback from "./pages/UpdateFeedback";
 import InDashboard from "./pages/InDashboard";
 import CustomerDashboard from "./pages/CustomerDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
-
-
-
 
 function App() {
   return (
@@ -70,7 +68,6 @@ function App() {
             <Route path="/vehicle/add" element={<AddVehicle />} />
             <Route path="/vehicle/edit/:code" element={<UpdateVehicle />} />
             <Route path="/vehicle" element={<VehicleList />} />
-
             <Route path="/location" element={<Locationlisting />} />
             <Route path="/location/add" element={<Addlocation />} />
             <Route path="/location/edit/:code" element={<Updatelocation />} />
@@ -88,21 +85,19 @@ function App() {
             <Route path="/vehicle/report" element={<VehicleReport />} />
             <Route path="/itemDashboard" element={<ItemDashboard />} />
             <Route path="/emp/report" element={<EmployeeReport />} />
-            <Route path="/customer/report" element={<CustomerReport />}/>
-            <Route path="/vehicleDashboard" element={<VehicleDashboard/>}/>
+            <Route path="/customer/report" element={<CustomerReport />} />
+            <Route path="/vehicleDashboard" element={<VehicleDashboard />} />
             <Route path="/task/report" element={<TaskReport />} />
-            <Route path="/taskDashboard" element={<TaskDashboard/>}/>\
-            <Route path="/locationDashboard" element={<LocationDashboard/>}/>
+            <Route path="/taskDashboard" element={<TaskDashboard />} />\
+            <Route path="/locationDashboard" element={<LocationDashboard />} />
             <Route path="/itemlist" element={<ItemList />} />
             <Route path="/feedback/add" element={<AddFeedback />} />
-            <Route path ="/viewFeedback" element={<FeedbackListing/>}/>
+            <Route path="/viewFeedback" element={<FeedbackListing />} />
             <Route path="/feedback/edit/:code" element={<UpdateFeedback />} />
-            <Route path="/inDashboard" element={<InDashboard/>}/>
-            <Route path="/customer/Dashboard" element={<CustomerDashboard/>}/>
-            <Route path="/employeeDashboard" element={<EmployeeDashboard/>}/>
-
-            
-      
+            <Route path="/inDashboard" element={<InDashboard />} />
+            <Route path="/customer/Dashboard" element={<CustomerDashboard />} />
+            <Route path="/employeeDashboard" element={<EmployeeDashboard />} />
+            <Route path="/invoiceReport" element={<InvoiceReport />} />
           </Routes>
         </Router>
         <ToastContainer />

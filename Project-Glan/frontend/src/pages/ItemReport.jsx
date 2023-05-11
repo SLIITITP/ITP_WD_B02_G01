@@ -18,6 +18,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 const ItemListing = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
   const conponentPDF = useRef();
+  let totalexpens = 0;
   useEffect(() => {
     props.loaditem();
   }, []);
@@ -71,11 +72,23 @@ const ItemListing = (props) => {
           </Link>
         </div>
         <div className="Content">
+          {props.Item.itemlists &&
+            props.Item.itemlists.map((iitem) => (
+              <script>
+                {iitem.quantity && iitem.unitprice
+                  ? (totalexpens =
+                      totalexpens + iitem.quantity * iitem.unitprice)
+                  : null}
+              </script>
+            ))}
+
           <div ref={conponentPDF} style={{ width: "100%" }}>
-          <h4>Glan International Pvt Limited</h4>
-          <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
-          <h6>glaninternational@gmail.com</h6>
-          <center><h4>Item List Report</h4></center>
+            <h4>Glan International Pvt Limited</h4>
+            <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
+            <h6>glaninternational@gmail.com</h6>
+            <center>
+              <h4>Item List Report</h4>
+            </center>
             <h5></h5>
             <hr />
             <Table striped hover className="table">
@@ -85,6 +98,7 @@ const ItemListing = (props) => {
                   <th>Item Name</th>
                   <th>Unit Price</th>
                   <th>Quantity</th>
+                  <th>Total Value</th>
                 </tr>
               </thead>
               <tbody className="tbody">
@@ -105,10 +119,14 @@ const ItemListing = (props) => {
                         <td>{iitem.itemname}</td>
                         <td>{iitem.unitprice}</td>
                         <td>{iitem.quantity}</td>
+                        <td>{iitem.quantity * iitem.unitprice}</td>
                       </tr>
                     ))}
               </tbody>
             </Table>
+            <h5>
+              <span>Total Stock Value : {totalexpens.toFixed(0)}</span>
+            </h5>
           </div>
           <button className="btn btn-success" onClick={generatePDF}>
             PDF/Download
