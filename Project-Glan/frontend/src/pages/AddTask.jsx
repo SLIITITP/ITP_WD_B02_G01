@@ -13,13 +13,14 @@ const AddTask = () => {
   const [prodSupe, setProdSupe] = useState("");
   const [sDate, setSDate] = useState("");
   const [eDate, setEDate] = useState("");
+  const [tState, setTState] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const taskobj = { tId, iName, iQty, prodSupe, sDate, eDate };
+    const taskobj = { tId, iName, iQty, prodSupe, sDate, eDate , tState };
     dispatch(CreateTask(taskobj));
     navigate("/task");
   };
@@ -92,6 +93,20 @@ const AddTask = () => {
                     onChange={(e) => setEDate(e.target.value)}
                   />
                 </div>
+
+                <div>
+                  <label class="form">Status :</label>
+                  <select
+                    className="form-control"
+                    value={tState}
+                    onChange={(e) => setTState(e.target.value)}>
+                  <option value="">Select...</option>
+                  <option value="Deactive">Deactive</option>
+                  <option value="Active">Active</option>
+
+                  </select>
+                </div>
+
               </div>
            <div>
               <button type="submit" className="submit">Submit</button>
