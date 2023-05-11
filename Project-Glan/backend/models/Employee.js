@@ -21,6 +21,10 @@ const employeeSchema = new schema({
     address: String,
 
     contactInfo: Number
-})
+},
+{
+    timestamps: true,
+  }
+  );
 
 module.exports = mongoose.model('Employee', employeeSchema);
