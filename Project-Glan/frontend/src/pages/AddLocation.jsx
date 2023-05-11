@@ -34,7 +34,7 @@ const AddLocation = () => {
       <div className="search">
       </div>
       <div class="page_sub_header">
-        <t class="sub_header_topic">Create Location</t>
+        <t class="sub_header_topic">Add Items</t>
       </div>
       <div className="ContentForm ">
         <form onSubmit={handleSubmit}>
