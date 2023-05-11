@@ -66,7 +66,7 @@ const LocationListing = (props) => {
       </div>
 
       <div class="page_sub_header">
-        <t class="sub_header_topic">View Locations</t>
+        <t class="sub_header_topic">Warehouse Dashboard</t>
         <Link to="/location/add" className="page_link">
           Create
         </Link>
