@@ -39,25 +39,25 @@ const UpdateLocation = () => {
     }, [locationobj]);
     const handleSubmit = (e) => {
         e.preventDefault();
-        const locationobj = {_id, itemID, itemName, area, Qty, Category, Description };
+        const locationobj = { _id, itemID, itemName, area, Qty, Category, Description };
         dispatch(LocationUpdate(_id, locationobj));
         navigate('/location');
     }
 
     return (
         <div>
-              <div>  <Header_bar_loc 
-                        fun1="Dashboard"
-                        fun2="Location"
-                        fun7="Report"/>
-                </div>
-        <div className="search">
-        </div>
-        <div class="page_sub_header">
-        <t class="sub_header_topic">Update Location</t>
-        </div>
-        <div className="ContentForm ">
-            <form onSubmit={handleSubmit}>
+            <div>  <Header_bar_loc
+                fun1="Dashboard"
+                fun2="Location"
+                fun7="Report" />
+            </div>
+            <div className="search">
+            </div>
+            <div class="page_sub_header">
+                <t class="sub_header_topic">Update Location</t>
+            </div>
+            <div className="ContentForm ">
+                <form onSubmit={handleSubmit}>
                     <div className="card-body" style={{ textAlign: "left" }}>
                         <div>
                             <div>
@@ -66,61 +66,65 @@ const UpdateLocation = () => {
                                     <input className="form-control" value={_id || ''} disabled="disabled" />
                                 </div>
                             </div>
-                        <div>
                             <div>
                                 <div>
-                                    <label class="form">Location Id :</label>
-                                    <input className="form-control" value={itemID || ''} disabled="disabled" />
+                                    <div>
+                                        <label class="form">Location Id :</label>
+                                        <input className="form-control" value={itemID || ''} disabled="disabled" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">Output Item Name :</label>
+                                        <input className="form-control" value={itemName || ''} onChange={e => setitemName(e.target.value)} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">Output Item Area :</label>
+                                        <select className="form-control" value={area} onChange={e => setarea(e.target.value)} >
+                                            <option value="zone a">zone a</option>
+                                            <option value="zone b">zone b</option>
+                                            <option value="zone c">zone c</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">Output item quantity :</label>
+                                        <input className="form-control" value={Qty || ''} onChange={e => setQty(e.target.value)} />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="form">
+                                <label>Select item Category :</label>
+                                <select className="form-control" value={Category} onChange={e => setCategory(e.target.value)}>
+                                    <option value="raw material">raw material</option>
+                                    <option value="filling">filling</option>
+                                    <option value="finished">finished</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">item Description :</label>
+                                        <input className="form-control" value={Description || ''} onChange={e => setDescription(e.target.value)} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                         <div>
-                            <div>
-                                <div>
-                                    <label class="form">Output Item Name :</label>
-                                    <input className="form-control" value={itemName || ''} onChange={e => setitemName(e.target.value)} />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <label class="form">Output Item Area :</label>
-                                    <input className="form-control" value={area || ''} onChange={e => setarea(e.target.value)} />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <label class="form">Output item quantity :</label>
-                                    <input className="form-control" value={Qty || ''} onChange={e => setQty(e.target.value)} />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <label class="form">Output item Category :</label>
-                                    <input className="form-control" value={Category || ''} onChange={e => setCategory(e.target.value)} />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <label class="form">item Description :</label>
-                                    <input className="form-control" value={Description || ''} onChange={e => setDescription(e.target.value)} />
-                                </div>
-                            </div>
+                            <button type="submit" className="submit">Update</button>
+                            <Link to={"/location"} className="clear">Back</Link>
                         </div>
                     </div>
-                     <div>
-                        <button type="submit" className="submit">Update</button>
-                        <Link to={"/location"} className="clear">Back</Link>
-            </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     );
