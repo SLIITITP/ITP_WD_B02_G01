@@ -71,7 +71,6 @@ const LocationListing = (props) => {
               <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
               <h6>glaninternational@gmail.com</h6>
               <center><h4>Warehouse Location Report</h4></center>
-              
               <hr />
               <Table striped hover className="table">
                 <thead className="theader">
