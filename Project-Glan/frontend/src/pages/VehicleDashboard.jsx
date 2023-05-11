@@ -108,13 +108,18 @@ const VehicleList = (props) => {
         <iframe
           style={
             ({ background: "#FFFFFF" },
-            { borderradius: "2px" },
-            { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+              { borderradius: "2px" },
+              { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
           }
           width="640"
           height="480"
           src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645bc348-d3ec-4b31-8b0b-6b93edec8cd0&maxDataAge=3600&theme=light&autoRefresh=true"
         ></iframe>
+
+
+
+        <iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})}
+          width="640" height="480" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645ccd94-4ef3-40d5-8975-70a469e20595&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
 
         <br></br>
         <br></br>
