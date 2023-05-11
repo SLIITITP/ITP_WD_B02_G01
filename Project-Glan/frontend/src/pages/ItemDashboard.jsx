@@ -1,10 +1,20 @@
 import { connect } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import { FetchItemList, RemoveItem } from "../redux/actions/ItemActions";
+import Header_bar_inv from "../components/Header_bar/Header_bar_inv";
+import "../pages/Content.css";
+import Table from "react-bootstrap/Table";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FiEdit } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
+import { BiSearchAlt } from "react-icons/bi";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const ItemListing = (props) => {
+  const [searchTerm, setSearchTerm] = useState("");
   let lowquant = 0;
   let totalquant = 0;
   let totalexpens = 0;
@@ -31,18 +41,40 @@ const ItemListing = (props) => {
     </div>
   ) : (
     <div>
-      <div className="Content">
-        <h1>Item Dashboard</h1>
-        <Link
-          to={"/AddItem"}
-          style={{ textDecoration: "none" }}
-          className="clear"
-        >
-          ADD ITEM
+      <div>
+        {" "}
+        <Header_bar_inv
+          fun1="Dashboard"
+          fun2="Items"
+          fun3="Raw Materials"
+          fun4="Damage or Return Products"
+          fun5="Suppliers"
+          fun6="Report"
+        />
+      </div>
+
+      <div className="search">
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="basic-addon1">
+            <BiSearchAlt />
+          </InputGroup.Text>
+          <Form.Control
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="basic-addon1"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </InputGroup>
+      </div>
+      <div class="page_sub_header">
+        <t class="sub_header_topic">Item Dashboard</t>
+        <Link to="/AddItem" className="page_link">
+          Create
         </Link>
-        <br></br>
-        <br></br>
-        <br></br>
+      </div>
+
+      <div className="Content">
         {props.Item.itemlists &&
           props.Item.itemlists.map((iitem) => (
             <script>
@@ -76,43 +108,37 @@ const ItemListing = (props) => {
           src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645ba979-9cc7-41f7-86ab-3ce8be56e10a&maxDataAge=3600&theme=light&autoRefresh=true"
         ></iframe>
 
-        <table class="table table-dark table-borderless">
-          <tr>
-            <th>Item Code</th>
-            <th>Item Name</th>
-            <th>Unit Price</th>
-            <th>Quantity</th>
-            <th>Action</th>
-          </tr>
-          <tbody>
+        <Table striped hover className="table">
+          <thead className="theader">
+            <tr>
+              <th>Item Code</th>
+              <th>Item Name</th>
+              <th>Unit Price</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody className="tbody">
             {props.Item.itemlists &&
-              props.Item.itemlists.map((iitem) => (
-                <tr key={iitem._id}>
-                  <td>{iitem.itemcode}</td>
-                  <td>{iitem.itemname}</td>
-                  <td>{iitem.unitprice}</td>
-                  <td>{iitem.quantity}</td>
-                  <td>
-                    <Link
-                      to={"/UpdateItem/" + iitem._id}
-                      style={{ textDecoration: "none" }}
-                      className="update "
-                    >
-                      Edit
-                    </Link>
-                    <button
-                      className="delete "
-                      onClick={() => {
-                        handleDelete(iitem._id);
-                      }}
-                    >
-                      Remove
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              props.Item.itemlists
+                .filter(
+                  (iitem) =>
+                    iitem.itemcode
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase()) ||
+                    iitem.itemname
+                      .toLowerCase()
+                      .includes(searchTerm.toLowerCase())
+                )
+                .map((iitem) => (
+                  <tr key={iitem._id}>
+                    <td>{iitem.itemcode}</td>
+                    <td>{iitem.itemname}</td>
+                    <td>{iitem.unitprice}</td>
+                    <td>{iitem.quantity}</td>
+                  </tr>
+                ))}
           </tbody>
-        </table>
+        </Table>
       </div>
     </div>
   );
