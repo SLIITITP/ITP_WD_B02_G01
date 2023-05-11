@@ -47,6 +47,10 @@ import LocationDashboard from "./pages/LocationDashboard";
 import AddFeedback from './pages/AddFeedback';
 import FeedbackListing from "./pages/FeedbackListing";
 import UpdateFeedback from "./pages/UpdateFeedback";
+import InDashboard from "./pages/InDashboard";
+import CustomerDashboard from "./pages/CustomerDashboard";
+import EmployeeDashboard from "./pages/EmployeeDashboard";
+
 
 
 
@@ -93,6 +97,10 @@ function App() {
             <Route path="/feedback/add" element={<AddFeedback />} />
             <Route path ="/viewFeedback" element={<FeedbackListing/>}/>
             <Route path="/feedback/edit/:code" element={<UpdateFeedback />} />
+            <Route path="/inDashboard" element={<InDashboard/>}/>
+            <Route path="/customer/Dashboard" element={<CustomerDashboard/>}/>
+            <Route path="/employeeDashboard" element={<EmployeeDashboard/>}/>
+
             
       
           </Routes>

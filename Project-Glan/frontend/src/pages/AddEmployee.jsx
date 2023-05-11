@@ -20,7 +20,7 @@ const AddEmployee = () => {
         e.preventDefault();
         const empobj = { empId, Name, nic, dob, address, contactInfo };
         dispatch(CreateEmp(empobj));
-        navigate('/');
+        navigate('/emp');
     }
 
     return (

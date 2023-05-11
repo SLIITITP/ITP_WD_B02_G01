@@ -80,6 +80,7 @@ const TaskListing = (props) => {
             </thead>
             <tbody className="tbodyManuf">
               {props.task.tasklist &&
+
                 props.task.tasklist
                   .filter(
                     (item) =>
@@ -124,6 +125,7 @@ const TaskListing = (props) => {
                             <FiTrash2 size="1.4rem" color="red" />
                           </button>
                         </td>
+
                       </td>
                     </tr>
                   ))}
