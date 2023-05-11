@@ -62,47 +62,53 @@ const LocationListing = (props) => {
             <t class="sub_header_topic">View Locations</t>
             <Link to="/location/add" className="page_link">Create</Link>
           </div>
-          
-            
-            <div className="Content">
 
-              <div ref={componentPDF} style={{ width: "100%" }}>
-                <Table striped hover className="table">
-                  <thead className="theader">
-                    <tr>
-                      <td>Item ID</td>
-                      <td>Item Name</td>
-                      <td>Item Area</td>
-                      <td>Item Quantity</td>
-                      <td>Item Category</td>
-                      <td>Item Description</td>
-                      
-                    </tr>
-                  </thead>
-                  <tbody className="tbody">
-                    {props.location.locationlists && props.location.locationlists
-                      .filter((item) =>
-                        item.itemName.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        item.Category.toLowerCase().includes(searchTerm.toLowerCase())
-                      )
-                      .map(item =>
-                        <tr key={item._id}>
-                          <td>{item.itemID}</td>
-                          <td>{item.itemName}</td>
-                          <td>{item.area}</td>
-                          <td>{item.Qty}</td>
-                          <td>{item.Category}</td>
-                          <td>{item.Description}</td>
-                          
 
-                        </tr>
-                      )}
-                  </tbody>
-                </Table>
-              </div>
-              <button className="btn btn-success" onClick={generatePDF}>PDF Download</button>
+          <div className="Content">
+
+            <div ref={componentPDF} style={{ width: "100%" }}>
+            <h4>Glan International Pvt Limited</h4>
+              <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
+              <h6>glaninternational@gmail.com</h6>
+              <center><h4>Warehouse Location Report</h4></center>
+              
+              <hr />
+              <Table striped hover className="table">
+                <thead className="theader">
+                  <tr>
+                    <td>Item ID</td>
+                    <td>Item Name</td>
+                    <td>Item Area</td>
+                    <td>Item Quantity</td>
+                    <td>Item Category</td>
+                    <td>Item Description</td>
+
+                  </tr>
+                </thead>
+                <tbody className="tbody">
+                  {props.location.locationlists && props.location.locationlists
+                    .filter((item) =>
+                      item.itemName.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                      item.Category.toLowerCase().includes(searchTerm.toLowerCase())
+                    )
+                    .map(item =>
+                      <tr key={item._id}>
+                        <td>{item.itemID}</td>
+                        <td>{item.itemName}</td>
+                        <td>{item.area}</td>
+                        <td>{item.Qty}</td>
+                        <td>{item.Category}</td>
+                        <td>{item.Description}</td>
+
+
+                      </tr>
+                    )}
+                </tbody>
+              </Table>
             </div>
-            
+            <button className="btn btn-success" onClick={generatePDF}>PDF Download</button>
+          </div>
+
 
 
 
