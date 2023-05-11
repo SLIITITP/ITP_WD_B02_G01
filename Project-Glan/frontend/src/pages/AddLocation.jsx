@@ -52,7 +52,8 @@ const AddLocation = () => {
               <div className="form">
                 <label>Enter new Item Area :</label>
                 <select className="form-control" value={area} onChange={e => setarea(e.target.value)} >
-                <option value="zone a">zone a</option>
+                  <option value="">Select...</option>
+                  <option value="zone a">zone a</option>
                   <option value="zone b">zone b</option>
                   <option value="zone c">zone c</option>
                 </select>
@@ -68,9 +69,10 @@ const AddLocation = () => {
               <div className="form">
                 <label>Select item Category :</label>
                 <select className="form-control" value={Category} onChange={e => setCategory(e.target.value)}>
-                  <option value="raw material">raw material</option>
-                  <option value="filling">filling</option>
-                  <option value="finished">finished</option>
+                  <option value="">Select...</option>
+                  <option value="Raw Material">Raw Material</option>
+                  <option value="Filling">Filling</option>
+                  <option value="Finished">Finished</option>
                 </select>
               </div>
 

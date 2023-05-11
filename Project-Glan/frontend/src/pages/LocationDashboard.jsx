@@ -44,24 +44,24 @@ const LocationListing = (props) => {
                 {props.location.locationlists &&
                     props.location.locationlists.map((item) => (
                         <script>
-                            {item.Category === "raw material" ? (Rawcount = Rawcount + 1) : null}
-                            {item.Category === "finished" ? (Finicount = Finicount + 1) : null}
-                            {item.Category === "filling" ? (Fillcount = Fillcount + 1) : null}
+                            {item.Category === "Raw Material" ? (Rawcount = Rawcount + 1) : null}
+                            {item.Category === "Finished" ? (Finicount = Finicount + 1) : null}
+                            {item.Category === "Filling" ? (Fillcount = Fillcount + 1) : null}
                             {item ? (Categorycount = Categorycount + 1) : null}
                         </script>
                     ))}
 
 
                 <h3>
-                    <span>raw material Count : {Rawcount.toFixed(0)}</span>
+                    <span>Raw Material Count : {Rawcount.toFixed(0)}</span>
                 </h3>
 
                 <h3>
-                    <span>	finished products Count : {Finicount.toFixed(0)}</span>
+                    <span>	Finished products Count : {Finicount.toFixed(0)}</span>
                 </h3>
 
                 <h3>
-                    <span>filling products Count : {Fillcount.toFixed(0)}</span>
+                    <span>Filling products Count : {Fillcount.toFixed(0)}</span>
                 </h3>
 
 
@@ -90,7 +90,7 @@ const LocationListing = (props) => {
                                 <td>Item Quantity</td>
                                 <td>Item Category</td>
                                 <td>Item Description</td>
-                                <td>Action</td>
+                                
                             </tr>
                         </thead>
                         <tbody>
@@ -103,17 +103,7 @@ const LocationListing = (props) => {
                                         <td>{item.Qty}</td>
                                         <td>{item.Category}</td>
                                         <td>{item.Description}</td>
-                                        <td>
-                                            <Link to={'/location/edit/' + item._id}
-                                                className="btn btn-primary"
-                                            >Edit
-                                            </Link> |
-                                            <button
-                                                onClick={() => {
-                                                    handleDelete(item._id);
-                                                }} className="btn btn-danger"
-                                            >Remove</button>
-                                        </td>
+                                        
 
                                     </tr>
                                 ))}

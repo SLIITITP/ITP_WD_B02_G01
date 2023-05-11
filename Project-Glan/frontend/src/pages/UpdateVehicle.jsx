@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { FetchVehicleObj,VehicleUpdate  } from "../redux/actions/VehicleAction";
+import { FetchVehicleObj, VehicleUpdate } from "../redux/actions/VehicleAction";
 import Header_bar_vehi from "../components/Header_bar/Header_bar_vehi";
 import "../pages/Content.css"
 
@@ -50,29 +50,29 @@ const UpdateVehicle = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const vehicleobj = { _id,vType, numPlate, insurance, capacity, vStatus };
-        dispatch(VehicleUpdate(_id,vehicleobj));
+        const vehicleobj = { _id, vType, numPlate, insurance, capacity, vStatus };
+        dispatch(VehicleUpdate(_id, vehicleobj));
         navigate("/vehicle");
     };
 
     return (
         <div>
-            <div>  <Header_bar_vehi 
+            <div>  <Header_bar_vehi
                 fun1="Dashboard"
                 fun2="Vehicles"
                 fun3="Orders"
                 fun4="Quotes"
                 fun5="Warehouse"
                 fun6="Releases"
-                fun7="Report"/>
-        </div>
-        <div className="search">
-        </div>
-        <div class="page_sub_header">
-        <t class="sub_header_topic">Update Vehicle User</t>
-        </div>
-        <div  className="ContentForm ">
-            <form onSubmit={handleSubmit}>
+                fun7="Report" />
+            </div>
+            <div className="search">
+            </div>
+            <div class="page_sub_header">
+                <t class="sub_header_topic">Update Vehicle User</t>
+            </div>
+            <div className="ContentForm ">
+                <form onSubmit={handleSubmit}>
                     <div className="card-body" style={{ textAlign: "left" }}>
                         <div>
 
@@ -94,77 +94,86 @@ const UpdateVehicle = () => {
 
                                 </div>
 
-                            
+
+
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">Vehicle Type:</label>
+                                        <select
+                                            className="form-control"
+                                            value={vType}
+                                            onChange={(e) => setVtype(e.target.value)}>
+                                            <option value="">Select...</option>
+                                            <option value="VAN">VAN</option>
+                                            <option value="CAR">CAR</option>
+                                            <option value="Lorry">Lorry</option>
+                                            <option value="BIC">BIC</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">Vehicle NumPlate :</label>
+                                        <input
+                                            className="form-control"
+                                            value={numPlate || ""}
+                                            onChange={(e) => setNumplate(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div >
+                                        <label class="form">Vehicle Insurance :</label>
+                                        <input
+                                            className="form-control"
+                                            value={insurance || ""}
+                                            onChange={(e) => setInsurance(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">Vehicle Capacity:</label>
+                                        <input
+                                            className="form-control"
+                                            value={capacity || ""}
+                                            onChange={(e) => setCapacity(e.target.value)}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div>
+                                    <div>
+                                        <label class="form">Vehicle Status :</label>
+                                        <select
+                                            className="form-control"
+                                            value={vStatus}
+                                            onChange={(e) => setVstatus(e.target.value)}>
+                                            <option value="">Select...</option>
+                                            <option value="Available">Available</option>
+                                            <option value="Repair">Repair</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
                         <div>
-                            <div>
-                                <div>
-                                    <label class="form">Vehicle Type:</label>
-                                    <input
-                                        className="form-control"
-                                        value={vType || ""}
-                                        onChange={(e) => setVtype(e.target.value)}
-                                    />
-                                </div>
-                            </div>
+                            <button type="submit" className="submit">Update</button>
+                            <Link to={"/vehicle"} className="clear">Back</Link>
                         </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <label class="form">Vehicle NumPlate :</label>
-                                    <input
-                                        className="form-control"
-                                        value={numPlate || ""}
-                                        onChange={(e) => setNumplate(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div >
-                                    <label class="form">Vehicle Insurance :</label>
-                                    <input
-                                        className="form-control"
-                                        value={insurance || ""}
-                                        onChange={(e) => setInsurance(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <label class="form">Vehicle Capacity:</label>
-                                    <input
-                                        className="form-control"
-                                        value={capacity || ""}
-                                        onChange={(e) => setCapacity(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div>
-                            <div>
-                                <div>
-                                    <label class="form">Vehicle Status :</label>
-                                    <input
-                                        className="form-control"
-                                        value={vStatus || ""}
-                                        onChange={(e) => setVstatus(e.target.value)}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
-                    <div>
-                        <button type="submit" className="submit">Update</button>
-                        <Link to={"/vehicle"} className="clear">Back</Link>
-                    </div>
-                </div>
-            </form>
+                </form>
             </div>
         </div>
     );

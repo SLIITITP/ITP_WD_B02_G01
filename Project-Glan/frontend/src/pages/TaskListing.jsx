@@ -72,6 +72,7 @@ const TaskListing = (props) => {
                 <td>Production Supervisor</td>
                 <td>Start Date</td>
                 <td>End Date</td>
+                <td>Status</td>
                 <td>Action</td>
               </tr>
             </thead>
@@ -93,6 +94,7 @@ const TaskListing = (props) => {
                     <td>{item.prodSupe}</td>
                     <td>{item.sDate}</td>
                     <td>{item.eDate}</td>
+                    <td>{item.tState}</td>
                     <td>
                        <td>
                         <Link to={"/task/edit/" + item._id}><FiEdit size= "1.3rem" color="blue" className="margin"/></Link>{" "}

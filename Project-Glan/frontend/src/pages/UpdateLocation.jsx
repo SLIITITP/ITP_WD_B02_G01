@@ -87,9 +87,10 @@ const UpdateLocation = () => {
                                     <div>
                                         <label class="form">Output Item Area :</label>
                                         <select className="form-control" value={area} onChange={e => setarea(e.target.value)} >
-                                            <option value="zone a">zone a</option>
-                                            <option value="zone b">zone b</option>
-                                            <option value="zone c">zone c</option>
+                                            <option value="">Select...</option>
+                                            <option value="Zone A">Zone A</option>
+                                            <option value="Zone B">Zone B</option>
+                                            <option value="Zone C">Zone C</option>
                                         </select>
                                     </div>
                                 </div>
@@ -105,9 +106,10 @@ const UpdateLocation = () => {
                             <div className="form">
                                 <label>Select item Category :</label>
                                 <select className="form-control" value={Category} onChange={e => setCategory(e.target.value)}>
-                                    <option value="raw material">raw material</option>
-                                    <option value="filling">filling</option>
-                                    <option value="finished">finished</option>
+                                    <option value="">Select...</option>
+                                    <option value="Raw Material">Raw Material</option>
+                                    <option value="Filling">Filling</option>
+                                    <option value="Finished">Finished</option>
                                 </select>
                             </div>
                             <div>
