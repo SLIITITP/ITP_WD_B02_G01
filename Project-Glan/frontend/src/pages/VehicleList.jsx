@@ -83,7 +83,7 @@ const VehicleList = (props) => {
               <td>Vehicle Insurance</td>
               <td>Vehicle Capacity</td>
               <td>Vehicle Status</td>
-              <td>Action</td>
+            
             </tr>
           </thead>
           <tbody className="tbody">

@@ -75,7 +75,7 @@ const VehicleList = (props) => {
         </InputGroup>
       </div>
       <div class="page_sub_header">
-        <t class="sub_header_topic">View Vehicle User</t>
+        <t class="sub_header_topic"><h1>View Vehicle User</h1></t>
         <Link to="/vehicle/add" className="page_link">
           Create
         </Link>
@@ -83,15 +83,14 @@ const VehicleList = (props) => {
 
 
 
-            <div className="card">
-            <h1>Vehicle Report</h1>
-                <div className="card-header">
-                    <Link to={"/vehicle/add"} className="btn btn-success">
-                        Create New Vehicle [+]
-                    </Link>
-                </div>
-                <div className="Content">
+      <div className="Content">
+            
+            
+                
+                
                 <div ref={conponentPDF} style={{ width: "100%" }}>
+                <h3>Glan International Pvt Limited</h3>
+            <h4>Vehicle Item List</h4>
                 <Table striped hover className="table">
           <thead className="theader">
             <tr>
@@ -121,7 +120,7 @@ const VehicleList = (props) => {
                 )
                 .map((item) => (
                   <tr>
-                    <td className="nowrap">{item._id}</td>
+                    
                     <td>{item.vType}</td>
                     <td>{item.numPlate}</td>
                     <td>{item.insurance}</td>
@@ -137,7 +136,7 @@ const VehicleList = (props) => {
             PDF DOWNLOADS
           </button>
                 </div>
-            </div>
+            
         </div>
     );
 };
