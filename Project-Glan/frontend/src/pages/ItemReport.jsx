@@ -1,12 +1,22 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 // npm install react-to-print (please install)
 import { useReactToPrint } from "react-to-print";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { FetchItemList } from "../redux/actions/ItemActions";
+import Header_bar_inv from "../components/Header_bar/Header_bar_inv";
+import "../pages/Content.css";
+import Table from "react-bootstrap/Table";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { FiEdit } from "react-icons/fi";
+import { FiTrash2 } from "react-icons/fi";
+import { BiSearchAlt } from "react-icons/bi";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
 const ItemListing = (props) => {
+  const [searchTerm, setSearchTerm] = useState("");
   const conponentPDF = useRef();
   useEffect(() => {
     props.loaditem();
@@ -29,41 +39,77 @@ const ItemListing = (props) => {
   ) : (
     <React.Fragment>
       <div>
-        <div className="Content">
-          <h1>Item Dashboard</h1>
-          <Link
-            to={"/AddItem"}
-            style={{ textDecoration: "none" }}
-            className="clear"
-          >
-            ADD ITEM
+        <div>
+          {" "}
+          <Header_bar_inv
+            fun1="Dashboard"
+            fun2="Items"
+            fun3="Raw Materials"
+            fun4="Damage or Return Products"
+            fun5="Suppliers"
+            fun6="Report"
+          />
+        </div>
+        <div className="search">
+          <InputGroup className="mb-3">
+            <InputGroup.Text id="basic-addon1">
+              <BiSearchAlt />
+            </InputGroup.Text>
+            <Form.Control
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="basic-addon1"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </InputGroup>
+        </div>
+        <div class="page_sub_header">
+          <t class="sub_header_topic">View Items</t>
+          <Link to="/AddItem" className="page_link">
+            Create
           </Link>
-          <br></br>
-          <br></br>
-          <br></br>
+        </div>
+        <div className="Content">
           <div ref={conponentPDF} style={{ width: "100%" }}>
-            <table class="table table-dark table-borderless">
-              <tr>
-                <th>Item Code</th>
-                <th>Item Name</th>
-                <th>Unit Price</th>
-                <th>Quantity</th>
-              </tr>
-              <tbody>
+            <h2>Glan International</h2>
+            <h4>Pvt Limited</h4>
+            <h5></h5>
+            <hr />
+            <Table striped hover className="table">
+              <thead className="theader">
+                <tr>
+                  <th>Item Code</th>
+                  <th>Item Name</th>
+                  <th>Unit Price</th>
+                  <th>Quantity</th>
+                </tr>
+              </thead>
+              <tbody className="tbody">
                 {props.Item.itemlists &&
-                  props.Item.itemlists.map((iitem) => (
-                    <tr key={iitem._id}>
-                      <td>{iitem.itemcode}</td>
-                      <td>{iitem.itemname}</td>
-                      <td>{iitem.unitprice}</td>
-                      <td>{iitem.quantity}</td>
-                    </tr>
-                  ))}
+                  props.Item.itemlists
+                    .filter(
+                      (iitem) =>
+                        iitem.itemcode
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase()) ||
+                        iitem.itemname
+                          .toLowerCase()
+                          .includes(searchTerm.toLowerCase())
+                    )
+                    .map((iitem) => (
+                      <tr key={iitem._id}>
+                        <td>{iitem.itemcode}</td>
+                        <td>{iitem.itemname}</td>
+                        <td>{iitem.unitprice}</td>
+                        <td>{iitem.quantity}</td>
+                      </tr>
+                    ))}
               </tbody>
-            </table>
+            </Table>
           </div>
           <button className="btn btn-success" onClick={generatePDF}>
-            PDF
+            PDF/Download
           </button>
         </div>
       </div>
