@@ -28,33 +28,15 @@ function Header_bar(props) {
           <span> Glan International</span>
         </div>
         <div className="system">
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">Manufacture</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">Sales</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">CRM</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">Finance</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">HRM</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">Inventory</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">Warehouse</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="each_sys">Transport</span>
-          </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
-            <span className="admin">Hi Admin</span>
-          </NavLink>
+        <NavLink to="/taskDashboard" style={{ textDecoration: 'none' }}><span className="each_sys">Manufacture</span ></NavLink> 
+            <NavLink to="/inDashboard" style={{ textDecoration: 'none' }}><span className="each_sys">Sales</span></NavLink>
+            <NavLink to="/customer/Dashboard" style={{ textDecoration: 'none' }}><span className="each_sys">CRM</span></NavLink>
+            <NavLink to="" style={{ textDecoration: 'none' }}><span className="each_sys">Finance</span></NavLink>
+            <NavLink to="/employeeDashboard" style={{ textDecoration: 'none' }}><span className="each_sys">HRM</span></NavLink>
+            <NavLink to="/itemDashboard" style={{ textDecoration: 'none' }}><span className="each_sys">Inventory</span></NavLink>
+            <NavLink to="/locationDashboard" style={{ textDecoration: 'none' }}><span className="each_sys">Warehouse</span></NavLink>
+            <NavLink to="/vehicleDashboard" style={{ textDecoration: 'none' }}><span className="each_sys">Transport</span></NavLink>
+            <NavLink to="#" style={{ textDecoration: 'none' }}><span className="admin">Hi Admin</span></NavLink>
           <div className="profileDIV">
             <Dropdown show={open} onClick={() => setOpen(!open)}>
               <Dropdown.Toggle
@@ -81,10 +63,10 @@ function Header_bar(props) {
           <NavLink to="/itemlist" style={{ textDecoration: "none" }}>
             <p className="each_fun">{props.fun2}</p>
             </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
+          <NavLink to="/AddItem" style={{ textDecoration: "none" }}>
             <p className="each_fun">{props.fun3}</p>
             </NavLink>
-          <NavLink to="" style={{ textDecoration: "none" }}>
+          <NavLink to="/itemreport" style={{ textDecoration: "none" }}>
             <p className="each_fun">{props.fun4}</p>
           </NavLink>
           <NavLink to="" style={{ textDecoration: "none" }}>

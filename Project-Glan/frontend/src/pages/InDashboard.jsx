@@ -58,7 +58,7 @@ function InListing(props) {
 
                         ))}
                     <DashboardSE
-                        topic="HRM Dashboard"
+                        topic="Sales Dashboard"
                         word1= "Invoice Count"
                         num1={<span>{Invoicecount.toFixed(0)}</span>}
                         word2="subTotl Count"

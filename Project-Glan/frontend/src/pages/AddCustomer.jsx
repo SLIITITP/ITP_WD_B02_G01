@@ -47,7 +47,7 @@ function AddCustomer() {
           <div>
             <div>
                   <div>
-                    <label class="form">Customer Id<sup>*</sup> :</label>
+                    <label class="required">Customer Id :</label>
                     <input
                       className="form-control"
                       value={cusId}
@@ -58,7 +58,7 @@ function AddCustomer() {
                     />
                   </div>
                   <div >
-                    <label class="form">Customer Name<sup>*</sup> :</label>
+                    <label class="required">Customer Name :</label>
                     <input
                       className="form-control"
                       value={cusName}
@@ -68,7 +68,7 @@ function AddCustomer() {
                     />
                   </div>
                   <div>
-                    <label  class="form">Customer Email<sup>*</sup> :</label>
+                    <label  class="required">Customer Email :</label>
                     <input
                       className="form-control"
                       value={email}
@@ -98,7 +98,7 @@ function AddCustomer() {
                     />
                   </div>
                   <div>
-                    <label  class="form">Mobile Number<sup>*</sup> :</label>
+                    <label  class="required">Mobile Number :</label>
                     <input
                       className="form-control"
                       value={conInfo}
@@ -110,7 +110,7 @@ function AddCustomer() {
                     />
                   </div>
                   <div>
-                    <label  class="form">User Name<sup>*</sup> :</label>
+                    <label  class="required">User Name :</label>
                     <input
                       className="form-control"
                       value={user}
@@ -122,7 +122,7 @@ function AddCustomer() {
                     />
                   </div>
                   <div>
-                    <label  class="form">User Password<sup>*</sup> :</label>
+                    <label  class="required">User Password :</label>
                     <input
                       className="form-control"
                       value={password}

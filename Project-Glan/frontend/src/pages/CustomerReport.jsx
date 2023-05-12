@@ -12,12 +12,13 @@ import { FiEdit } from "react-icons/fi";
 import { FiTrash2} from "react-icons/fi";
 import { BiSearchAlt} from "react-icons/bi";
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from "react-bootstrap/Form";
+
+
+
 import InputGroup from "react-bootstrap/InputGroup";
-import { BiSearchAlt } from "react-icons/bi";
-import Table from "react-bootstrap/Table";
-import Header_bar from "../components/Header_bar/Header_bar";
+
+//import Table from "react-bootstrap/Table";
+//import Header_bar from "../components/Header_bar/Header_bar";
 
 function CustomerListing(props) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -129,7 +130,7 @@ function CustomerListing(props) {
             </div>
             
             </div>
-          
+            </React.Fragment>
       );
 }
 

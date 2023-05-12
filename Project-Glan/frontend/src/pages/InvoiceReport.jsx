@@ -49,10 +49,8 @@ function InListing(props) {
         <Header_bar_sales
           fun1="Dashboard"
           fun2="Invoices"
-          fun3="Credit Notes"
-          fun4="Orders"
-          fun5="Delivery Notes"
-          fun6="Report"
+          fun3="Add Invoice"
+          fun4="Report"
         />
       </div>
       <div className="search">
@@ -151,4 +149,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(InvoiceReport);
+export default connect(mapStateToProps, mapDispatchToProps)(InListing);

@@ -42,10 +42,8 @@ const ItemListing = (props) => {
         <Header_bar_inv
           fun1="Dashboard"
           fun2="Items"
-          fun3="Raw Materials"
-          fun4="Damage or Return Products"
-          fun5="Suppliers"
-          fun6="Report"
+          fun3="Add Item"
+          fun4="Report"
         />
       </div>
       <div className="search">
