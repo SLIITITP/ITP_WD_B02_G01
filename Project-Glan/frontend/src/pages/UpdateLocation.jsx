@@ -47,14 +47,17 @@ const UpdateLocation = () => {
     return (
         <div>
             <div>  <Header_bar_loc
-                fun1="Dashboard"
-                fun2="Location"
-                fun7="Report" />
+                 fun1="Dashboard"
+                 fun2="Location"
+                 fun3="Add Location"
+                 fun4="View Wastage"
+                 fun5="Add Wastage"
+                 fun6="Report" />
             </div>
             <div className="search">
             </div>
             <div class="page_sub_header">
-                <t class="sub_header_topic">Update Location</t>
+                <t class="sub_header_topic">Update Warehouse Items</t>
             </div>
             <div className="ContentForm ">
                 <form onSubmit={handleSubmit}>
@@ -69,7 +72,7 @@ const UpdateLocation = () => {
                             <div>
                                 <div>
                                     <div>
-                                        <label class="form">Location Id :</label>
+                                        <label class="required">Location Id :</label>
                                         <input className="form-control" value={itemID || ''} disabled="disabled" />
                                     </div>
                                 </div>
@@ -77,7 +80,7 @@ const UpdateLocation = () => {
                             <div>
                                 <div>
                                     <div>
-                                        <label class="form">Output Item Name :</label>
+                                        <label class="required">Output Item Name :</label>
                                         <input className="form-control" value={itemName || ''} onChange={e => setitemName(e.target.value)} />
                                     </div>
                                 </div>
@@ -85,7 +88,7 @@ const UpdateLocation = () => {
                             <div>
                                 <div>
                                     <div>
-                                        <label class="form">Output Item Area :</label>
+                                        <label class="required">Output Item Area :</label>
                                         <select className="form-control" value={area} onChange={e => setarea(e.target.value)} >
                                             <option value="">Select...</option>
                                             <option value="Zone A">Zone A</option>
@@ -104,7 +107,7 @@ const UpdateLocation = () => {
                                 </div>
                             </div>
                             <div className="form">
-                                <label>Select item Category :</label>
+                                <label className="required">Select item Category :</label>
                                 <select className="form-control" value={Category} onChange={e => setCategory(e.target.value)}>
                                     <option value="">Select...</option>
                                     <option value="Raw Material">Raw Material</option>

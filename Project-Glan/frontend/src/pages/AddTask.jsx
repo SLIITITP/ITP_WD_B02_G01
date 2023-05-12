@@ -30,7 +30,8 @@ const AddTask = () => {
       <div>  <Header_bar_manu 
               fun1="Dashboard"
               fun2="Task"
-              fun7="Report"/>
+              fun3="Add Task"
+              fun4="Report"/>
         </div>
         <div className="search">
         </div>
@@ -42,7 +43,7 @@ const AddTask = () => {
             <div>
               <div>
                 <div>
-                  <label class="form">Task Id :</label>
+                  <label class="required">Task Id :</label>
                   <input
                     className="form-control"
                     value={tId}
@@ -50,7 +51,7 @@ const AddTask = () => {
                   />
                 </div>
                 <div>
-                  <label class="form">Output Item Name :</label>
+                  <label class="required">Output Item Name :</label>
                   <input
                     className="form-control"
                     value={iName}
@@ -59,7 +60,7 @@ const AddTask = () => {
                 </div>
           
                 <div >
-                  <label class="form">Output Item Quantity :</label>
+                  <label class="required">Output Item Quantity :</label>
                   <input
                     className="form-control"
                     value={iQty}
@@ -77,8 +78,9 @@ const AddTask = () => {
                 </div>
          
                 <div>
-                  <label class="form">Start Date :</label>
+                  <label class="required">Start Date :</label>
                   <input
+                    type="date"
                     className="form-control"
                     value={sDate}
                     onChange={(e) => setSDate(e.target.value)}
@@ -88,6 +90,7 @@ const AddTask = () => {
                 <div>
                   <label class="form">End Date :</label>
                   <input
+                    type="date"
                     className="form-control"
                     value={eDate}
                     onChange={(e) => setEDate(e.target.value)}

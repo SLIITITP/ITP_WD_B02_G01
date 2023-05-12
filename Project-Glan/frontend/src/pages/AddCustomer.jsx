@@ -34,9 +34,8 @@ function AddCustomer() {
           fun2="Customer"
           fun3="Customer Privilege"
           fun4="Customer Feedback"
-          fun5="Purchase History"
-          fun6="Notifications"
-          fun7="Report"/>
+          fun5="Notifications"
+          fun6="Report"/>
         </div>
         <div className="search">
         </div>
@@ -48,26 +47,35 @@ function AddCustomer() {
           <div>
             <div>
                   <div>
-                    <label class="form">Customer Id :</label>
+                    <label class="form">Customer Id<sup>*</sup> :</label>
                     <input
                       className="form-control"
                       value={cusId}
+                      required
+                      pattern="C\d{4}"
+                      title="It should be stat with 'C' letter and must added 4 numbers"
                       onChange={(e) => setcusId(e.target.value)}
                     />
                   </div>
                   <div >
-                    <label class="form">Customer Name :</label>
+                    <label class="form">Customer Name<sup>*</sup> :</label>
                     <input
                       className="form-control"
                       value={cusName}
+                      placeholder="Name with Initials"
+                      required
                       onChange={(e) => setcusName(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label  class="form">Customer Email:</label>
+                    <label  class="form">Customer Email<sup>*</sup> :</label>
                     <input
                       className="form-control"
                       value={email}
+                      placeholder="email@gmail.com"
+                      pattern="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.(com|org|net|edu|gov|mil|info|biz|co.uk|us)$"
+                      title="It should be a valid email address!"
+                      required
                       onChange={(e) => setemail(e.target.value)}
                     />
                   </div>
@@ -76,39 +84,52 @@ function AddCustomer() {
                     <input
                       className="form-control"
                       value={address}
+                      placeholder="Address"
                       onChange={(e) => setaddress(e.target.value)}
                     />
                   </div>
                   <div>
                     <label  class="form">Date of birth :</label>
                     <input
-                      type="d"
+                      type="date"
                       className="form-control"
                       value={dob}
                       onChange={(e) => setdob(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label  class="form">Mobile Number:</label>
+                    <label  class="form">Mobile Number<sup>*</sup> :</label>
                     <input
                       className="form-control"
                       value={conInfo}
+                      placeholder="Mobile No"
+                      pattern="[0-9]{10}"
+                      title="Mobile No should be 10 numbers"
+                      required
                       onChange={(e) => setconInfo(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label  class="form">User Name :</label>
+                    <label  class="form">User Name<sup>*</sup> :</label>
                     <input
                       className="form-control"
                       value={user}
+                      placeholder="User Name"
+                      pattern="^[A-Za-z0-9]{3,16}$"
+                      title="Username should be 3-16 characters and shouldn't include any special character!"
+                      required
                       onChange={(e) => setuser(e.target.value)}
                     />
                   </div>
                   <div>
-                    <label  class="form">User Password :</label>
+                    <label  class="form">User Password<sup>*</sup> :</label>
                     <input
                       className="form-control"
                       value={password}
+                      placeholder="Password"
+                      pattern= "^(?=.*[0-9])(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$"
+                      title="Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!"
+                      required
                       onChange={(e) => setpassword(e.target.value)}
                     />
                   </div>

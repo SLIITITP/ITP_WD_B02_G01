@@ -42,9 +42,12 @@ const LocationListing = (props) => {
 
         <div>
           <div>  <Header_bar_loc
-            fun1="Dashboard"
-            fun2="Location"
-            fun7="Report" />
+             fun1="Dashboard"
+             fun2="Location"
+             fun3="Add Location"
+             fun4="View Wastage"
+             fun5="Add Wastage"
+             fun6="Report"/>
           </div>
           <div className="search">
             <InputGroup className="mb-3">
@@ -67,6 +70,11 @@ const LocationListing = (props) => {
             <div className="Content">
 
               <div ref={componentPDF} style={{ width: "100%" }}>
+              <h4>Glan International Pvt Limited</h4>
+              <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
+              <h6>glaninternational@gmail.com</h6>
+              <center><h4>Warehouse Location Report</h4></center>
+              <hr />
                 <Table striped hover className="table">
                   <thead className="theader">
                     <tr>

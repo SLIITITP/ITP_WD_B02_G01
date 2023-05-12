@@ -1,11 +1,17 @@
 import { useReactToPrint } from "react-to-print";
-import { useEffect , useState , useRef } from "react";
+import React,{ useEffect , useState , useRef } from "react";
 import { FetchCustomerList, RemoveCustomer } from "../redux/actions/Customer"
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify"
 import { connect } from "react-redux"
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import { BiSearchAlt } from "react-icons/bi";
+import Table from "react-bootstrap/Table";
+import Header_bar from "../components/Header_bar/Header_bar";
 
 function CustomerListing(props) {
+    const [searchTerm, setSearchTerm] = useState("");
     const componentPDF = useRef();
 
     useEffect(() => {
@@ -21,7 +27,7 @@ function CustomerListing(props) {
       };
       const generatePDF = useReactToPrint({
         content: () => componentPDF.current,
-        documentTitle: "Warehouse Item list",
+        documentTitle: "Customer list",
         OnAFterPrint: () => alert("Data saved in PDF"),
       })
 
@@ -35,56 +41,84 @@ function CustomerListing(props) {
           <h2>{props.customer.errmessage}</h2>
         </div>
       ) : (
+        <React.Fragment>
         <div>
-          <div className="card">
-          <div className="card-header" style={{ textAlign: "left" }}>
-              <h2>Customer Report</h2>
-            </div>
-            <div className="card-header">
-              <Link to={"/customer/add"} className="btn btn-success">
-                Create New Customer [+]
-              </Link>
-            </div>
-            <div className="card-body">
-            <div ref={componentPDF} style = {{width: "100%"}}>
-              <table className="table table-bordered">
-                <thead className="bg-dark text-white">
-                  <tr>
-                    <td>Obj Id</td>
-                    <td>Customer Id</td>
-                    <td>Customer Name</td>
-                    <td>Email</td>
-                    <td>Address</td>
-                    <td>Date of Birthday</td>
-                    <td>Contact Number</td>
-                    <td>User Name</td>
-                    
-                  </tr>
-                </thead>
-                <tbody>
-                  {props.customer.customerlist &&
-                    props.customer.customerlist.map((item) => (
-                      <tr key={item._id}>
-                        <td>{item._id}</td>
-                        <td>{item.cusId}</td>
-                        <td>{item.cusName}</td>
-                        <td>{item.email}</td>
-                        <td>{item.address}</td>
-                        <td>{item.dob}</td>
-                        <td>{item.conInfo}</td>
-                        <td>{item.user}</td>
-                        
-                        
-                      </tr>
-                    ))}
-                </tbody>
-              </table>
-              </div>
-            </div>
-            <button className="btn btn-success" onClick={generatePDF}>PDF Download</button>
-
-          </div>
+        <div>  
+          {" "}
+          <Header_bar 
+          fun1="Dashboard"
+          fun2="Customer"
+          fun3="Customer Privilege"
+          fun4="Customer Feedback"
+          fun5="Notifications"
+          fun6="Report"/>
         </div>
+        <div className="search">
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="basic-addon1"><BiSearchAlt/></InputGroup.Text>
+          <Form.Control
+              placeholder="Search"
+              aria-label="Search"
+              aria-describedby="basic-addon1"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          </InputGroup>
+        </div>
+        <div class="page_sub_header">
+          <t class="sub_header_topic">View Customers</t>
+          <Link to="/customer/add" className="page_link">Create</Link>
+        </div>
+          <div className="Content">
+            <div ref={componentPDF} style={{ width: "100%" }}>
+            <h4>Glan International Pvt Limited</h4>
+              <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
+              <h6>glaninternational@gmail.com</h6>
+              <center><h4>Customer List Report</h4></center>
+              <hr />
+              <Table striped hover className="table">
+              <thead className="theader">
+              <tr>
+                <th>Object ID</th>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Date of Birthday</th>
+                <th>Contact Number</th>
+                <th>User Name</th>
+              </tr>
+              </thead>
+              <tbody className="tbody">
+                {props.customer.customerlist && 
+                props.customer.customerlist
+                .filter((item) =>
+                  item.cusName.toLowerCase().includes(searchTerm.toLowerCase())||
+                  item.cusId.toLowerCase().includes(searchTerm.toLowerCase())||
+                  item.address.toLowerCase().includes(searchTerm.toLowerCase())||
+                  item.dob.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+                .map((item) => (
+                  <tr key={item._id}>
+                    <td className="nowrap">{item._id}</td>
+                    <td>{item.cusId}</td>
+                    <td>{item.cusName}</td>
+                    <td>{item.email}</td>
+                    <td>{item.address}</td>
+                    <td>{item.dob}</td>
+                    <td>{item.conInfo}</td>
+                    <td>{item.user}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </Table>
+         </div>
+         <button className="btn btn-success" onClick={generatePDF}>
+            PDF/Download
+          </button>
+      </div>
+      </div>
+      </React.Fragment>
       );
 }
 

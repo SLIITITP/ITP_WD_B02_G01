@@ -50,6 +50,7 @@ import UpdateFeedback from "./pages/UpdateFeedback";
 import InDashboard from "./pages/InDashboard";
 import CustomerDashboard from "./pages/CustomerDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
+import InvoiceReport from "./pages/InvoiceReport";
 
 
 
@@ -70,7 +71,6 @@ function App() {
             <Route path="/vehicle/add" element={<AddVehicle />} />
             <Route path="/vehicle/edit/:code" element={<UpdateVehicle />} />
             <Route path="/vehicle" element={<VehicleList />} />
-
             <Route path="/location" element={<Locationlisting />} />
             <Route path="/location/add" element={<Addlocation />} />
             <Route path="/location/edit/:code" element={<Updatelocation />} />
@@ -100,6 +100,7 @@ function App() {
             <Route path="/inDashboard" element={<InDashboard/>}/>
             <Route path="/customer/Dashboard" element={<CustomerDashboard/>}/>
             <Route path="/employeeDashboard" element={<EmployeeDashboard/>}/>
+            <Route path="/invoiceReport" element={<InvoiceReport/>} />
 
             
       

@@ -29,28 +29,31 @@ const AddLocation = () => {
       <div>  <Header_bar_loc
         fun1="Dashboard"
         fun2="Location"
-        fun7="Report" />
+        fun3="Add Location"
+        fun4="View Wastage"
+        fun5="Add Wastage"
+        fun6="Report" />
       </div>
       <div className="search">
       </div>
       <div class="page_sub_header">
-        <t class="sub_header_topic">Create Location</t>
+        <t class="sub_header_topic">Add Location</t>
       </div>
       <div className="ContentForm ">
         <form onSubmit={handleSubmit}>
           <div>
             <div>
               <div>
-                <label className="form">Item Id :</label>
+                <label className="required">Item Id :</label>
                 <input className="form-control" value={itemID} onChange={e => setitemID(e.target.value)} />
               </div>
               <div class="form">
-                <label>Enter new Item Name :</label>
+                <label className="required">Enter new Item Name :</label>
                 <input className="form-control" value={itemName} onChange={e => setitemName(e.target.value)} />
               </div>
 
               <div className="form">
-                <label>Enter new Item Area :</label>
+                <label className="required">Enter new Item Area :</label>
                 <select className="form-control" value={area} onChange={e => setarea(e.target.value)} >
                   <option value="">Select...</option>
                   <option value="Zone A">Zone A</option>
@@ -67,7 +70,7 @@ const AddLocation = () => {
 
 
               <div className="form">
-                <label>Select item Category :</label>
+                <label className="required">Select item Category :</label>
                 <select className="form-control" value={Category} onChange={e => setCategory(e.target.value)}>
                   <option value="">Select...</option>
                   <option value="Raw Material">Raw Material</option>

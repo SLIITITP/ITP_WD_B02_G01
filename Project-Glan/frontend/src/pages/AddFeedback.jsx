@@ -31,13 +31,12 @@ function AddFeedback() {
     return (
       <div>
          <div>  <Header_bar 
-          fun1="Dashboard"
-          fun2="Customer"
-          fun3="Customer Privilege"
-          fun4="Customer Feedback"
-          fun5="Purchase History"
-          fun6="Notifications"
-          fun7="Report"/>
+           fun1="Dashboard"
+           fun2="Customer"
+           fun3="Customer Privilege"
+           fun4="Customer Feedback"
+           fun5="Notifications"
+           fun6="Report"/>
         </div>
         <div className="search">
         </div>
@@ -53,6 +52,9 @@ function AddFeedback() {
                     <input
                       className="form-control"
                       value={fid}
+                      required
+                      pattern="F\d{4}"
+                      title="It should be stat with 'F' letter and must added 4 numbers"
                       onChange={(e) => setfid(e.target.value)}
                     />
                   </div>
@@ -61,6 +63,8 @@ function AddFeedback() {
                     <input
                       className="form-control"
                       value={cusName}
+                      placeholder="Name with Initials"
+                      required
                       onChange={(e) => setcusName(e.target.value)}
                     />
                   </div>
@@ -78,6 +82,7 @@ function AddFeedback() {
                     <input
                       className="form-control"
                       value={feed}
+                      required
                       onChange={(e) => setfeed(e.target.value)}
                     />
                   </div>

@@ -15,6 +15,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { BiSearchAlt } from "react-icons/bi";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Dashboard from "../components/Dashboard/Dashboard";
 
 const VehicleList = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -50,36 +51,13 @@ const VehicleList = (props) => {
         <Header_bar_vehi
           fun1="Dashboard"
           fun2="Vehicles"
-          fun3="Orders"
-          fun4="Quotes"
+          fun3="Add Vehicle"
+          fun4="Orders"
           fun5="Warehouse"
-          fun6="Releases"
-          fun7="Report"
+          fun6="Report"
         />
       </div>
-
-      <div className="search">
-        <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">
-            <BiSearchAlt />
-          </InputGroup.Text>
-          <Form.Control
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="basic-addon1"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </InputGroup>
-      </div>
-
-      <div class="page_sub_header">
-        <t class="sub_header_topic">Vehicle Dashboard</t>
-        <Link to="/vehicle/add" className="page_link">
-          Create
-        </Link>
-      </div>
-      <div className="Content">
+      <div>
         {props.vehicle.vehiclelist &&
           props.vehicle.vehiclelist.map((item) => (
             <script>
@@ -93,38 +71,33 @@ const VehicleList = (props) => {
               {item ? (Vehiclecount = Vehiclecount + 1) : null}
             </script>
           ))}
-        <h3>
-          <span>Available Vehicle Count : {Avehiclecount.toFixed(0)}</span>
-        </h3>
 
-        <h3>
-          <span>Repair Vehicle Count : {Rvehiclecount.toFixed(0)}</span>
-        </h3>
+         <Dashboard
+           topic ="Transport Dashboard"
+            word1= "Available Vehicle Count"
+            num1={<span>{Avehiclecount.toFixed(0)}</span>}
+            word2="Repair Vehicle Count"
+            num2={<span> {Rvehiclecount.toFixed(0)}</span>}
+            word3="Total Vehicle Count"
+            num3= {<span>{Vehiclecount.toFixed(0)}</span>}
 
-        <h3>
-          <span>Total Vehicle Count : {Vehiclecount.toFixed(0)}</span>
-        </h3>
-
-        <iframe
+        cha1={<iframe
           style={
             ({ background: "#FFFFFF" },
               { borderradius: "2px" },
               { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
           }
-          width="640"
-          height="480"
+          width="380"
+          height="250"
           src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645bc348-d3ec-4b31-8b0b-6b93edec8cd0&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>
+        ></iframe>}
 
 
 
-        <iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})}
-          width="640" height="480" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645ccd94-4ef3-40d5-8975-70a469e20595&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+        cha2={<iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})}
+          width="380" height="250" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645ccd94-4ef3-40d5-8975-70a469e20595&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>}
 
-        <br></br>
-        <br></br>
-        <br></br>
-        <div className="card-body">
+        view={<div className="itemTable">
           <Table striped hover className="table">
             <thead className="theader">
               <tr>
@@ -163,7 +136,7 @@ const VehicleList = (props) => {
                   ))}
             </tbody>
           </Table>
-        </div>
+        </div>}/>
       </div>
     </div>
   );

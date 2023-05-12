@@ -50,13 +50,12 @@ function UpdateFeedback() {
     return (
       <div>
           <div>  <Header_bar 
-          fun1="Dashboard"
-          fun2="Customer"
-          fun3="Customer Privilege"
-          fun4="Customer Feedback"
-          fun5="Purchase History"
-          fun6="Notifications"
-          fun7="Report"/>
+           fun1="Dashboard"
+           fun2="Customer"
+           fun3="Customer Privilege"
+           fun4="Customer Feedback"
+           fun5="Notifications"
+           fun6="Report"/>
         </div>
         <div className="search">
           <span>Search bar</span>
@@ -113,7 +112,6 @@ function UpdateFeedback() {
                   <div className="form-group">
                     <label class="form">Response :</label>
                     <input
-                      type="date"
                       className="form-control"
                       value={response || ""}
                       onChange={(e) => setresponse(e.target.value)}

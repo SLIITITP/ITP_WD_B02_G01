@@ -41,13 +41,12 @@ function CustomerListing(props) {
       ) : (
         <div>
           <div>  <Header_bar 
-            fun1="Dashboard"
-            fun2="Customer"
-            fun3="Customer Privilege"
-            fun4="Customer Feedback"
-            fun5="Purchase History"
-            fun6="Notifications"
-            fun7="Report"/>
+           fun1="Dashboard"
+           fun2="Customer"
+           fun3="Customer Privilege"
+           fun4="Customer Feedback"
+           fun5="Notifications"
+           fun6="Report"/>
           </div>
           <div className="search">
           <InputGroup className="mb-3">

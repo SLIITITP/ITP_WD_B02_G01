@@ -12,6 +12,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { BiSearchAlt } from "react-icons/bi";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Dashboard from "../components/Dashboard/Dashboard";
 
 const ItemListing = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -52,29 +53,7 @@ const ItemListing = (props) => {
           fun6="Report"
         />
       </div>
-
-      <div className="search">
-        <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">
-            <BiSearchAlt />
-          </InputGroup.Text>
-          <Form.Control
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="basic-addon1"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </InputGroup>
-      </div>
-      <div class="page_sub_header">
-        <t class="sub_header_topic">Item Dashboard</t>
-        <Link to="/AddItem" className="page_link">
-          Create
-        </Link>
-      </div>
-
-      <div className="Content">
+      <div>
         {props.Item.itemlists &&
           props.Item.itemlists.map((iitem) => (
             <script>
@@ -87,31 +66,45 @@ const ItemListing = (props) => {
                 : null}
             </script>
           ))}
-        <h3>
-          <span>Outof Stock Count : {lowquant.toFixed(0)}</span>
-        </h3>
-        <h3>
-          <span>Total Quantity Count : {totalquant.toFixed(0)}</span>
-        </h3>
-        <h3>
-          <span>Total Stock Value : {totalexpens.toFixed(0)}</span>
-        </h3>
+          <Dashboard
+           topic ="Inventory Dashboard"
+            word1= "Out of Stock Count"
+            num1={<span>{lowquant.toFixed(0)}</span>}
+            word2="Outof Stock Count"
+            num2={<span> {lowquant.toFixed(0)}</span>}
+            word3="Total Stock Value"
+            num3= {<span>{totalexpens.toFixed(0)}</span>}
 
-        <iframe
-          style={
-            ({ background: "#FFFFFF" },
-            { borderradius: "2px" },
-            { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
-          }
-          width="640"
-          height="480"
-          src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645ba979-9cc7-41f7-86ab-3ce8be56e10a&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>
+            cha1 ={
+                 <iframe
+                 style={
+                   ({ background: "#FFFFFF" },
+                   { borderradius: "2px" },
+                   { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+                 }
+                 width="380"
+                 height="250"
+                 src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645ba979-9cc7-41f7-86ab-3ce8be56e10a&maxDataAge=3600&theme=light&autoRefresh=true"
+               ></iframe>
+            }
+            cha2 ={
+              <iframe
+                style={
+                ({ background: "#FFFFFF" },
+                { borderradius: "2px" },
+                { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+              }
+              width="380"
+              height="250"
+              src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645d0bb9-7aa3-4f3d-8c3c-36fc05a12030&maxDataAge=3600&theme=light&autoRefresh=true"
+              ></iframe>}
 
+       view={
+        <div className="itemTable">
         <Table striped hover className="table">
           <thead className="theader">
             <tr>
-              <th>Item Code</th>
+              <th>Item Code</th> 
               <th>Item Name</th>
               <th>Unit Price</th>
               <th>Quantity</th>
@@ -139,6 +132,7 @@ const ItemListing = (props) => {
                 ))}
           </tbody>
         </Table>
+        </div>}/>
       </div>
     </div>
   );

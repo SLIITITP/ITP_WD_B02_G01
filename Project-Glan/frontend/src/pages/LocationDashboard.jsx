@@ -15,6 +15,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { BiSearchAlt } from "react-icons/bi";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Dashboard from "../components/Dashboard/Dashboard";
 
 const LocationListing = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -48,31 +49,16 @@ const LocationListing = (props) => {
     <div>
       <div>
         {" "}
-        <Header_bar_loc fun1="Dashboard" fun2="Location" fun7="Report" />
+        <Header_bar_loc  
+        fun1="Dashboard"
+        fun2="Location"
+        fun3="Add Location"
+        fun4="View Wastage"
+        fun5="Add Wastage"
+        fun6="Report" />
       </div>
-      <div className="search">
-        <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">
-            <BiSearchAlt />
-          </InputGroup.Text>
-          <Form.Control
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="basic-addon1"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </InputGroup>
-      </div>
-
-      <div class="page_sub_header">
-        <t class="sub_header_topic">View Locations</t>
-        <Link to="/location/add" className="page_link">
-          Create
-        </Link>
-      </div>
-
-      <div className="Content">
+      
+      <div>
         {props.location.locationlists &&
           props.location.locationlists.map((item) => (
             <script>
@@ -87,48 +73,41 @@ const LocationListing = (props) => {
             </script>
           ))}
 
-        <h3>
-          <span>Raw Material Count : {Rawcount.toFixed(0)}</span>
-        </h3>
-
-        <h3>
-          <span> Finished products Count : {Finicount.toFixed(0)}</span>
-        </h3>
-
-        <h3>
-          <span>Filling products Count : {Fillcount.toFixed(0)}</span>
-        </h3>
-
+          <Dashboard
+            topic="Warehouse Dashboard"
+            word1= "Raw Material Count"
+            num1={<span>{Rawcount.toFixed(0)}</span>}
+            word2="Finished products Count"
+            num2={<span> {Finicount.toFixed(0)}</span>}
+            word3="Finished products Count"
+            num3= {<span>{Fillcount.toFixed(0)}</span>}
+        
+            cha1={
         <iframe
           style={
             ({ background: "#FFFFFF" },
             { borderradius: "2px" },
             { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
           }
-          width="640"
-          height="480"
+          width="380"
+          height="250"
           src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645c0003-b7c3-4f7e-85a3-de2caa1ca507&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>
+        ></iframe>}
 
-        <br></br>
-        <br></br>
-        <br></br>
-
+      cha2={
         <iframe
           style={
             ({ background: "#FFFFFF" },
             { borderradius: "2px" },
             { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
           }
-          width="640"
-          height="480"
+          width="380"
+          height="250"
           src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645c031e-5fd5-4742-8d09-80011a637763&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>
-        <br></br>
-        <br></br>
-        <br></br>
-
-        <div className="card-body">
+        ></iframe>}
+      
+      view={
+      <div className="itemTable">
           <Table striped hover className="table">
             <thead className="theader">
               <tr>
@@ -164,8 +143,8 @@ const LocationListing = (props) => {
                   ))}
             </tbody>
           </Table>
+          </div>}/>
         </div>
-      </div>
     </div>
   );
 };

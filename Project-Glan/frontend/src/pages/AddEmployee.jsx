@@ -26,9 +26,10 @@ const AddEmployee = () => {
     return (
         <div>
               <div>  <Header_bar_emp 
-          fun1="Dashboard"
-          fun2="Employee"
-          fun7="Report"/>
+                        fun1="Dashboard"
+                        fun2="Employee"
+                        fun3="Add Employee"
+                        fun4="Report"/>
         </div>
         <div className="search">
         </div>
@@ -40,13 +41,13 @@ const AddEmployee = () => {
                         <div>
                             <div>
                                 <div>
-                                    <label  class="form">Employee Id :</label>
+                                    <label  class="required">Employee Id :</label>
                                     <input className="form-control" value={empId} onChange={e => setempId(e.target.value)} />
                                 </div>
                         <div>
                             <div>
                                 <div>
-                                    <label class="form">Employee Name :</label>
+                                    <label class="required">Employee Name :</label>
                                     <input className="form-control" value={Name} onChange={e => setName(e.target.value)} />
                                 </div>
                             </div>
@@ -54,7 +55,7 @@ const AddEmployee = () => {
                         <div>
                             <div>
                                 <div>
-                                    <label class="form">NIC :</label>
+                                    <label class="required">NIC :</label>
                                     <input className="form-control" value={nic} onChange={e => setNic(e.target.value)} />
                                 </div>
                             </div>
@@ -78,7 +79,7 @@ const AddEmployee = () => {
                         <div>
                             <div>
                                 <div>
-                                    <label  class="form">Employee Mobile Number :</label>
+                                    <label  class="required">Employee Mobile Number :</label>
                                     <input className="form-control" value={contactInfo} onChange={e => setContactInfo(e.target.value)} />
                                 </div>
                             </div>

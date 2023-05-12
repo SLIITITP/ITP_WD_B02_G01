@@ -36,13 +36,12 @@ const LocationListing = (props) => {
 
         <div>
           <div>  <Header_bar_loc
-            fun1="Dashboard"
-            fun2="Vehicles"
-            fun3="Orders"
-            fun4="Quotes"
-            fun5="Warehouse"
-            fun6="Releases"
-            fun7="Report"
+             fun1="Dashboard"
+             fun2="Location"
+             fun3="Add Location"
+             fun4="View Wastage"
+             fun5="Add Wastage"
+             fun6="Report"
              />
           </div>
           <div className="search">

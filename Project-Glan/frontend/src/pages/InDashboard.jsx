@@ -11,6 +11,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { BiSearchAlt } from "react-icons/bi";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import DashboardSE from '../components/Dashboard/DashboardSE';
 
 function InListing(props) {
 
@@ -36,31 +37,12 @@ function InListing(props) {
                     <div><Header_bar_sales
                         fun1="Dashboard"
                         fun2="Invoices"
-                        fun3="Credit Notes"
-                        fun4="Orders"
-                        fun5="Delivery Notes"
-                        fun6="Report" />
+                        fun3="Add Invoice"
+                        fun4="Report"/>
                     </div>
-                    <div className="search">
-                        <InputGroup className="mb-3">
-                            <InputGroup.Text id="basic-addon1"><BiSearchAlt /></InputGroup.Text>
-                            <Form.Control
-                                placeholder="Search"
-                                aria-label="Search"
-                                aria-describedby="basic-addon1"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                        </InputGroup>
-                    </div>
-                    <div class="page_sub_header">
-                        <t class="sub_header_topic">View Invoices</t>
-                        <Link to="/invoice/add" className="page_link">Create</Link>
-                    </div>
-                    <div className="Content">
-
-
-
+                    
+                    
+                    <div>
 
                     {props.invoice.invoicelist && props.invoice.invoicelist
                         .map((item) => (
@@ -75,25 +57,25 @@ function InListing(props) {
 
 
                         ))}
-
-                    <h3>
-                        <span>Invoice Count : {Invoicecount.toFixed(0)}</span>
-                    </h3>
-
-                    <h3>
-                        <span>subTotl Count : {subTot.toFixed(0)}</span>
-                    </h3>
-
-
-
-                    <iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})} 
-                    width="640" height="480" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645c9f50-4a3f-4c66-8949-c06bf1e883e7&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                    <DashboardSE
+                        topic="HRM Dashboard"
+                        word1= "Invoice Count"
+                        num1={<span>{Invoicecount.toFixed(0)}</span>}
+                        word2="subTotl Count"
+                        num2={<span> {subTot.toFixed(0)}</span>}
+                        word3="Invoice Count"
+                        num3= {<span>{Invoicecount.toFixed(0)}</span>}
 
 
 
+                    cha1={<iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})} 
+                    width="380" height="250" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645c9f50-4a3f-4c66-8949-c06bf1e883e7&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>}
 
 
-                        <Table striped hover className="table">
+
+                        view={
+                        <div className="itemTable">
+                            <Table striped hover className="table">
                             <thead className="theaderInvoice">
                                 <tr>
                                     <th>Id</th>
@@ -140,6 +122,7 @@ function InListing(props) {
                                 }
                             </tbody>
                         </Table>
+                        </div>}/>
                     </div>
                 </div>
 

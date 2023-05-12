@@ -35,10 +35,8 @@ function AddInv() {
             <div><Header_bar_sales 
                             fun1="Dashboard"
                             fun2="Invoices"
-                            fun3="Credit Notes"
-                            fun4="Orders"
-                            fun5="Delivery Notes"
-                            fun6="Report"/>
+                            fun3="Add Invoice"
+                            fun4="Report"/>
                     </div>
                     <div className="search">
                     </div>
@@ -48,17 +46,17 @@ function AddInv() {
             <div className="ContentForm">
             <form onSubmit={handlesubmit} >
                 <div>
-                    <lable class="form">
+                    <lable class="required">
                         Invoice Code:
                         <input type="text" name="iCode" value={inCode} onChange={e => iCodechange(e.target.value)} className="form-control"></input>
                     </lable>
 
-                    <lable class="form">
+                    <lable class="required">
                         Invoice Name:
                         <input type="text" name="iName" value={iName} onChange={e => iNamechange(e.target.value)} className="form-control"></input>
                     </lable>
 
-                    <lable class="form">
+                    <lable class="required">
                         Quantity:
                         <input type="text" name="Qty" value={Qty} onChange={e => Qtychange(e.target.value)} className="form-control"></input>
                     </lable>
@@ -93,9 +91,9 @@ function AddInv() {
                         <input type="text" name="netTot" value={netTot} onChange={e => netTotchange(e.target.value)} className="form-control"></input>
                     </lable>
 
-                    <lable class="form">
+                    <lable class="required">
                         Create Date:
-                        <input type="text" name="CrDate" value={crDate} onChange={e => CrDatechange(e.target.value)} className="form-control"></input>
+                        <input type="date" name="CrDate" value={crDate} onChange={e => CrDatechange(e.target.value)} className="form-control"></input>
                     </lable>
                 </div>
                 <div>

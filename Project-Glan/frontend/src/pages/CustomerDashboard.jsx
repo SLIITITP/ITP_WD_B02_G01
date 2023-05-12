@@ -12,6 +12,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { BiSearchAlt } from "react-icons/bi";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Dashboard from "../components/Dashboard/Dashboard";
 
 
 
@@ -46,33 +47,15 @@ function CustomerListing(props) {
     ) : (
         <div>
             <div>  <Header_bar
-                fun1="Dashboard"
-                fun2="Customer"
-                fun3="Customer Privilege"
-                fun4="Customer Feedback"
-                fun5="Purchase History"
-                fun6="Notifications"
-                fun7="Report" />
+                 fun1="Dashboard"
+                 fun2="Customer"
+                 fun3="Customer Privilege"
+                 fun4="Customer Feedback"
+                 fun5="Notifications"
+                 fun6="Report" />
             </div>
-            <div className="search">
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon1"><BiSearchAlt /></InputGroup.Text>
-                    <Form.Control
-                        placeholder="Search"
-                        aria-label="Search"
-                        aria-describedby="basic-addon1"
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                    />
-                </InputGroup>
-            </div>
-            <div class="page_sub_header">
-                <t class="sub_header_topic">View Customers</t>
-                <Link to="/customer/add" className="page_link">Create</Link>
-            </div>
-            <div className="Content">
-
-
+            
+            <div>
 
             {props.customer.customerlist &&
                 props.customer.customerlist
@@ -84,24 +67,27 @@ function CustomerListing(props) {
 
                     ))}
 
-            <h3>
-                <span>Customer Count : {Customercount.toFixed(0)}</span>
-            </h3>
+                    <Dashboard
+                        topic="CRM Dashboard"
+                        word1= "Number of Customers"
+                        num1={<span>{Customercount.toFixed(0)}</span>}
+                        word2= "Total Privilege Customers"
+                        num2={<span>{Customercount.toFixed(0)}</span>}
+                        word3= "Total Feedbacks"
+                        num3={<span>{Customercount.toFixed(0)}</span>}
+
+    
+                    cha1 ={
+                    <iframe style={({ background: "#FFFFFF" }, { borderradius: "2px" }, { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })}
+                        width="380" height="250" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645cab76-3392-4704-8753-33e78c48732a&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>}
 
 
-
-
-
-            <iframe style={({ background: "#FFFFFF" }, { borderradius: "2px" }, { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })}
-                width="640" height="480" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645cab76-3392-4704-8753-33e78c48732a&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
-
-
-
-
-
-
-
-            
+                    cha2={
+                        <iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})}
+                         width="380" height="250" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645da53d-6e2f-4f6a-8fd6-41609f25e9c9&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
+                    }
+                view={
+                <div className="itemTable">
                 <Table striped hover className="table">
                     <thead className="theader">
                         <tr>
@@ -140,6 +126,7 @@ function CustomerListing(props) {
                                 ))}
                     </tbody>
                 </Table>
+                </div>}/>
             </div>
         </div>
     );

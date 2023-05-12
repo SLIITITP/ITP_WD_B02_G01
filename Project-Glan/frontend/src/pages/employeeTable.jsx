@@ -38,9 +38,10 @@ const EmployeeTable = (props) => {
 
         <div>
               <div>  <Header_bar_emp 
-                fun1="Dashboard"
-                fun2="Employee"
-                fun7="Report"/>
+                 fun1="Dashboard"
+                 fun2="Employee"
+                 fun3="Add Employee"
+                 fun4="Report"/>
               </div>
               <div className="search">
                 <InputGroup className="mb-3">

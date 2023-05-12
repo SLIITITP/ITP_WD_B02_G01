@@ -52,7 +52,7 @@ const Additem = () => {
         <section>
           <form onSubmit={onSubmit}>
             <div>
-              <lable class="form">Item Code : </lable>
+              <lable class="required">Item Code : </lable>
               <input
                 type="text"
                 className="form-control"
@@ -65,7 +65,7 @@ const Additem = () => {
               />
             </div>
             <div>
-              <lable class="form">Item Name : </lable>
+              <lable class="required">Item Name : </lable>
               <input
                 type="text"
                 className="form-control"
@@ -78,7 +78,7 @@ const Additem = () => {
               />
             </div>
             <div>
-              <lable class="form">Unit Price : </lable>
+              <lable class="required">Unit Price : </lable>
               <input
                 type="text"
                 className="form-control"
@@ -91,7 +91,7 @@ const Additem = () => {
               />
             </div>
             <div>
-              <lable class="form">quantity : </lable>
+              <lable class="required">quantity : </lable>
               <input
                 type="text"
                 className="form-control"

@@ -40,7 +40,11 @@ const TaskListing = (props) => {
     <div>
       <div>
         {" "}
-        <Header_bar_menu fun1="Dashboard" fun2="Task" fun7="Report" />
+        <Header_bar_menu 
+              fun1="Dashboard"
+              fun2="Task"
+              fun3="Add Task"
+              fun4="Report" />
       </div>
       <div className="search">
         <InputGroup className="mb-3">

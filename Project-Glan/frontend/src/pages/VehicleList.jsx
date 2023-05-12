@@ -46,11 +46,10 @@ const VehicleList = (props) => {
         <Header_bar_vehi
           fun1="Dashboard"
           fun2="Vehicles"
-          fun3="Orders"
-          fun4="Quotes"
+          fun3="Add Vehicle"
+          fun4="Orders"
           fun5="Warehouse"
-          fun6="Releases"
-          fun7="Report"
+          fun6="Report"
         />
       </div>
       <div className="search">

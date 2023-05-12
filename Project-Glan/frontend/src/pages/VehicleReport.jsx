@@ -53,11 +53,10 @@ const VehicleList = (props) => {
         <Header_bar_vehi
           fun1="Dashboard"
           fun2="Vehicles"
-          fun3="Orders"
-          fun4="Quotes"
+          fun3="Add Vehicle"
+          fun4="Orders"
           fun5="Warehouse"
-          fun6="Releases"
-          fun7="Report"
+          fun6="Report"
         />
       </div>
       <div className="search">
@@ -89,8 +88,11 @@ const VehicleList = (props) => {
                 
                 
                 <div ref={conponentPDF} style={{ width: "100%" }}>
-                <h3>Glan International Pvt Limited</h3>
-            <h4>Vehicle Item List</h4>
+                <h4>Glan International Pvt Limited</h4>
+                <h6>No.551,Mihindu Mawatha,Malabe,Sri Lanaka</h6>
+                <h6>glaninternational@gmail.com</h6>
+                <center><h4>Vehicle List Report</h4></center>
+                <hr />
                 <Table striped hover className="table">
           <thead className="theader">
             <tr>

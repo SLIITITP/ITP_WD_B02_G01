@@ -32,10 +32,8 @@ function InListing(props) {
                     <div><Header_bar_sales 
                             fun1="Dashboard"
                             fun2="Invoices"
-                            fun3="Credit Notes"
-                            fun4="Orders"
-                            fun5="Delivery Notes"
-                            fun6="Report"/>
+                            fun3="Add Invoice"
+                            fun4="Report"/>
                     </div>
                     <div className="search">
                         <InputGroup className="mb-3">

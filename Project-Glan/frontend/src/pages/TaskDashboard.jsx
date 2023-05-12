@@ -12,6 +12,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { BiSearchAlt } from "react-icons/bi";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
+import Dashboard from "../components/Dashboard/Dashboard";
 
 const TaskListing = (props) => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -44,29 +45,14 @@ const TaskListing = (props) => {
     <div>
       <div>
         {" "}
-        <Header_bar_menu fun1="Dashboard" fun2="Task" fun7="Report" />
+        <Header_bar_menu 
+        fun1="Dashboard"
+              fun2="Task"
+              fun3="Add Task"
+              fun4="Report" />
       </div>
-      <div className="search">
-        <InputGroup className="mb-3">
-          <InputGroup.Text id="basic-addon1">
-            <BiSearchAlt />
-          </InputGroup.Text>
-          <Form.Control
-            placeholder="Search"
-            aria-label="Search"
-            aria-describedby="basic-addon1"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-        </InputGroup>
-      </div>
-      <div class="page_sub_header">
-        <t class="sub_header_topic">View Tasks</t>
-        <Link to="/task/add" className="page_link">
-          Create
-        </Link>
-      </div>
-
+      
+    <div>
       {props.task.tasklist &&
         props.task.tasklist.map((item) => (
           <script>
@@ -75,46 +61,40 @@ const TaskListing = (props) => {
             {item ? (Taskcount = Taskcount + 1) : null}
           </script>
         ))}
-      <div className="Content">
-        <h3>
-          <span>Active Task Count : {ATaskcount.toFixed(0)}</span>
-        </h3>
+        <Dashboard
+            topic="Manufacture Dashboard"
+            word1= "Active Task Count"
+            num1={<span>{ATaskcount.toFixed(0)}</span>}
+            word2="DeActive Task Count"
+            num2={<span> {DTaskcount.toFixed(0)}</span>}
+            word3="Total Task Count"
+            num3= {<span>{Taskcount.toFixed(0)}</span>}
 
-        <h3>
-          <span>DeActive Task Count : {DTaskcount.toFixed(0)}</span>
-        </h3>
-
-        <h3>
-          <span>Total Task Count : {Taskcount.toFixed(0)}</span>
-        </h3>
-
-        <iframe
+        cha1={<iframe
           style={
             ({ background: "#FFFFFF" },
             { borderradius: "2px" },
             { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
           }
-          width="640"
-          height="480"
+          width="380"
+          height="250"
           src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645bdf4c-b515-4368-8b67-ba9511d6c2ad&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>
+        ></iframe>}
 
-        <br></br>
-        <br></br>
-        <br></br>
-
-        <iframe
+      
+        cha2={<iframe
           style={
             ({ background: "#FFFFFF" },
             { borderradius: "2px" },
             { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
           }
-          width="640"
-          height="480"
+          width="380"
+          height="250"
           src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645be2c0-6fa3-4798-85f3-fbce151794a6&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>
+        ></iframe>}
 
-        <div className="card-body">
+        view={
+        <div className="itemTable">
           <Table striped hover className="table">
             <thead className="theaderManuf">
               <tr>
@@ -160,9 +140,9 @@ const TaskListing = (props) => {
                   ))}
             </tbody>
           </Table>
+        </div>}/>
         </div>
       </div>
-    </div>
   );
 };
 

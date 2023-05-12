@@ -12,6 +12,7 @@ import { FiTrash2 } from "react-icons/fi";
 import { BiSearchAlt } from "react-icons/bi";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
+import DashboardSE from "../components/Dashboard/DashboardSE";
 
 
 
@@ -40,30 +41,13 @@ const EmployeeTable = (props) => {
 
                 <div>
                     <div>  <Header_bar_emp
-                        fun1="Dashboard"
-                        fun2="Employee"
-                        fun7="Report" />
-                    </div>
-                    <div className="search">
-                        <InputGroup className="mb-3">
-                            <InputGroup.Text id="basic-addon1"><BiSearchAlt /></InputGroup.Text>
-                            <Form.Control
-                                placeholder="Search"
-                                aria-label="Search"
-                                aria-describedby="basic-addon1"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                        </InputGroup>
+                         fun1="Dashboard"
+                         fun2="Employee"
+                         fun3="Add Employee"
+                         fun4="Report" />
                     </div>
 
-                    <div class="page_sub_header">
-                        <t class="sub_header_topic">View Employees</t>
-                        <Link to="/emp/add" className="page_link">Create</Link>
-                    </div>
-                    <div className="Content">
-
-
+                    <div>
                     {props.emp.empList && props.emp.empList
                         .map((item) => (
                             <script>
@@ -71,23 +55,23 @@ const EmployeeTable = (props) => {
 
                             </script>
 
-
-
                         ))}
 
-                    <h3>
-                        <span>Employee Count : {Employeecount.toFixed(0)}</span>
-                    </h3>
+                
+                    <DashboardSE
+                        topic="HRM Dashboard"
+                        word1= "Employee Count"
+                        num1={<span>{Employeecount.toFixed(0)}</span>}
+                        word2= "Employee Count"
+                        num2={<span>{Employeecount.toFixed(0)}</span>}
+                        word3= "Employee Count"
+                        num3={<span>{Employeecount.toFixed(0)}</span>}
 
+                    cha1={<iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})} 
+                    width="380" height="250" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645cba57-4455-4993-87df-be9c451c01ed&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>}
 
-
-                    <iframe style={({background: "#FFFFFF"},{borderradius: "2px"},{boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)"})} 
-                    width="640" height="480" src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645cba57-4455-4993-87df-be9c451c01ed&maxDataAge=3600&theme=light&autoRefresh=true"></iframe>
-
-
-
-
-                    
+                    view={
+                        <div  className="itemTable">
                         <Table striped hover className="table">
                             <thead className="theader">
                                 <tr>
@@ -123,8 +107,8 @@ const EmployeeTable = (props) => {
                                     )}
                             </tbody>
                         </Table>
+                    </div>}/>
                     </div>
-
                 </div>
     );
 }

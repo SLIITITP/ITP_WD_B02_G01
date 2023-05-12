@@ -58,13 +58,12 @@ const UpdateVehicle = () => {
     return (
         <div>
             <div>  <Header_bar_vehi
-                fun1="Dashboard"
-                fun2="Vehicles"
-                fun3="Orders"
-                fun4="Quotes"
-                fun5="Warehouse"
-                fun6="Releases"
-                fun7="Report" />
+               fun1="Dashboard"
+               fun2="Vehicles"
+               fun3="Add Vehicle"
+               fun4="Orders"
+               fun5="Warehouse"
+               fun6="Report" />
             </div>
             <div className="search">
             </div>
@@ -100,7 +99,7 @@ const UpdateVehicle = () => {
                             <div>
                                 <div>
                                     <div>
-                                        <label class="form">Vehicle Type:</label>
+                                        <label class="required">Vehicle Type:</label>
                                         <select
                                             className="form-control"
                                             value={vType}
@@ -118,7 +117,7 @@ const UpdateVehicle = () => {
                             <div>
                                 <div>
                                     <div>
-                                        <label class="form">Vehicle NumPlate :</label>
+                                        <label class="required">Vehicle NumPlate :</label>
                                         <input
                                             className="form-control"
                                             value={numPlate || ""}
@@ -154,7 +153,7 @@ const UpdateVehicle = () => {
                             <div>
                                 <div>
                                     <div>
-                                        <label class="form">Vehicle Status :</label>
+                                        <label class="required">Vehicle Status :</label>
                                         <select
                                             className="form-control"
                                             value={vStatus}

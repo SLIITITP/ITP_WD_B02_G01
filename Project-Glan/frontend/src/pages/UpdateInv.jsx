@@ -57,10 +57,8 @@ function UpdateInv() {
       <div><Header_bar_sales 
                             fun1="Dashboard"
                             fun2="Invoices"
-                            fun3="Credit Notes"
-                            fun4="Orders"
-                            fun5="Delivery Notes"
-                            fun6="Report"/>
+                            fun3="Add Invoice"
+                            fun4="Report"/>
                     </div>
                     <div className="search">
                     </div>
@@ -76,12 +74,12 @@ function UpdateInv() {
             <input type="text" name="id" value={_id || ''} disabled="disabled" className="form-control"></input>
           </lable><br />
 
-          <lable >
+          <lable className="required">
             Invoice Code:
             <input type="text" name="InCode" value={inCode || ''} onChange={e => InCodechange(e.target.value)} className="form-control"></input>
           </lable><br />
 
-          <lable>
+          <lable className="required">
             Invoice Name:
             <input type="text" name="InName" value={iName || ''} onChange={e => InNamechange(e.target.value)} className="form-control"></input>
           </lable><br />
@@ -120,9 +118,9 @@ function UpdateInv() {
             <input type="text" name="NetTot" value={netTot || ''} onChange={e => NetTotchange(e.target.value)} className="form-control"></input>
           </lable><br />
 
-          <lable>
+          <lable className="required">
             Create Date:
-            <input type="text" name="CrDate" value={crDate || ''} onChange={e => CrDatechange(e.target.value)} className="form-control"></input>
+            <input type="date" name="CrDate" value={crDate || ''} onChange={e => CrDatechange(e.target.value)} className="form-control"></input>
           </lable><br />
         </div>
          <div>

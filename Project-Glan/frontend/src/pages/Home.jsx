@@ -1,6 +1,7 @@
 import Header_bar from "../components/Header_bar/Header_bar";
 import "../pages/Content.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Dashboard from "../components/Dashboard/Dashboard";
 
 function Home() {
   return (
@@ -14,10 +15,10 @@ function Home() {
           fun6="Notifications"
           fun7="Report"/>
         </div>
-        <div className="search">
+        <div>
+          <Dashboard/>
         </div>
-        <div class="page_sub_header">
-        </div>
+        
     </div>
   );
 }
