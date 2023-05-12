@@ -1,6 +1,5 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
 import AddTask from "./pages/AddTask";
 import UpdateTask from "./pages/UpdateTask";
 import TaskListing from "./pages/TaskListing";
@@ -8,6 +7,7 @@ import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
 import Store from "./redux/Store";
 
+import Loging from "./pages/login";
 import ItemDashboard from "./pages/ItemDashboard";
 import ItemList from "./pages/ItemList";
 import AddItem from "./pages/AddItem";
@@ -52,14 +52,13 @@ import CustomerDashboard from "./pages/CustomerDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import InvoiceReport from "./pages/InvoiceReport";
 
-
 function App() {
   return (
     <Provider store={Store}>
       <div className="App">
         <Router>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Loging />} />
             <Route path="/task" element={<TaskListing />} />
             <Route path="/task/add" element={<AddTask />} />
             <Route path="/task/edit/:code" element={<UpdateTask />} />
@@ -95,14 +94,10 @@ function App() {
             <Route path="/feedback/add" element={<AddFeedback />} />
             <Route path="/viewFeedback" element={<FeedbackListing />} />
             <Route path="/feedback/edit/:code" element={<UpdateFeedback />} />
-            <Route path="/inDashboard" element={<InDashboard/>}/>
-            <Route path="/customer/Dashboard" element={<CustomerDashboard/>}/>
-            <Route path="/employeeDashboard" element={<EmployeeDashboard/>}/>
-            <Route path="/invoiceReport" element={<InvoiceReport/>}/>
-
-            
-            
-      
+            <Route path="/inDashboard" element={<InDashboard />} />
+            <Route path="/customer/Dashboard" element={<CustomerDashboard />} />
+            <Route path="/employeeDashboard" element={<EmployeeDashboard />} />
+            <Route path="/invoiceReport" element={<InvoiceReport />} />
           </Routes>
         </Router>
         <ToastContainer />
