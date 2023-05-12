@@ -33,11 +33,11 @@ const AddLocation = () => {
         fun4="View Wastage"
         fun5="Add Wastage"
         fun6="Report" />
-      </div>
+      </div>  <t class="sub_header_topic">Create Location</t>
       <div className="search">
       </div>
       <div class="page_sub_header">
-        <t class="sub_header_topic">Add Location</t>
+      <t class="sub_header_topic">Add Items</t>
       </div>
       <div className="ContentForm ">
         <form onSubmit={handleSubmit}>

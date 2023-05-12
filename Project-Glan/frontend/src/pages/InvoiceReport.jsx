@@ -16,7 +16,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import { useReactToPrint } from "react-to-print";
 
-function InvoiceReport(props) {
+function InListing(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const componentPDF = useRef();
 
@@ -47,10 +47,12 @@ function InvoiceReport(props) {
     <div>
       <div>
         <Header_bar_sales
-           fun1="Dashboard"
-           fun2="Invoices"
-           fun3="Add Invoice"
-           fun4="Report"
+          fun1="Dashboard"
+          fun2="Invoices"
+          fun3="Credit Notes"
+          fun4="Orders"
+          fun5="Delivery Notes"
+          fun6="Report"
         />
       </div>
       <div className="search">

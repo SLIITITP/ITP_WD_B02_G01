@@ -26,6 +26,7 @@ import VehicleDashboard from "./pages/VehicleDashboard";
 import AddInv from "./pages/AddInv";
 import UpdateInv from "./pages/UpdateInv";
 import InListing from "./pages/InListing";
+import InvoiceReport from "./pages/InvoiceReport";
 
 import Dashboard from "./pages/Dashboard";
 import Locationlisting from "./pages/LocationListing";
@@ -44,7 +45,7 @@ import TaskReport from "./pages/TaskReport";
 import TaskDashboard from "./pages/TaskDashboard";
 import LocationDashboard from "./pages/LocationDashboard";
 
-import AddFeedback from './pages/AddFeedback';
+import AddFeedback from "./pages/AddFeedback";
 import FeedbackListing from "./pages/FeedbackListing";
 import UpdateFeedback from "./pages/UpdateFeedback";
 import InDashboard from "./pages/InDashboard";
@@ -52,64 +53,144 @@ import CustomerDashboard from "./pages/CustomerDashboard";
 import EmployeeDashboard from "./pages/EmployeeDashboard";
 import InvoiceReport from "./pages/InvoiceReport";
 
-
-
-
 function App() {
-  return (
-    <Provider store={Store}>
-      <div className="App">
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/task" element={<TaskListing />} />
-            <Route path="/task/add" element={<AddTask />} />
-            <Route path="/task/edit/:code" element={<UpdateTask />} />
-            <Route path="/Items" element={<ItemList />} />
-            <Route path="/AddItem" element={<AddItem />} />
-            <Route path="/UpdateItem/:code" element={<UpdateItem />} />
-            <Route path="/vehicle/add" element={<AddVehicle />} />
-            <Route path="/vehicle/edit/:code" element={<UpdateVehicle />} />
-            <Route path="/vehicle" element={<VehicleList />} />
-            <Route path="/location" element={<Locationlisting />} />
-            <Route path="/location/add" element={<Addlocation />} />
-            <Route path="/location/edit/:code" element={<Updatelocation />} />
-            <Route path="/location/Report" element={<LocationReport />} />
-            <Route path="/emp" element={<EmployeeTable />} />
-            <Route path="/emp/edit/:code" element={<UpdateEmp />} />
-            <Route path="/emp/add" element={<AddEmployee />} />
-            <Route path="/invoice" element={<InListing />} />
-            <Route path="/invoice/add" element={<AddInv />}></Route>
-            <Route path="/invoice/edit/:code" element={<UpdateInv />}></Route>
-            <Route path="/customer/add" element={<AddCustomer />} />
-            <Route path="/viewCustomer" element={<CustomerListing />} />
-            <Route path="/customer/edit/:code" element={<UpdateCustomer />} />
-            <Route path="/itemreport" element={<ItemReport />} />
-            <Route path="/vehicle/report" element={<VehicleReport />} />
-            <Route path="/itemDashboard" element={<ItemDashboard />} />
-            <Route path="/emp/report" element={<EmployeeReport />} />
-            <Route path="/customer/report" element={<CustomerReport />}/>
-            <Route path="/vehicleDashboard" element={<VehicleDashboard/>}/>
-            <Route path="/task/report" element={<TaskReport />} />
-            <Route path="/taskDashboard" element={<TaskDashboard/>}/>\
-            <Route path="/locationDashboard" element={<LocationDashboard/>}/>
-            <Route path="/itemlist" element={<ItemList />} />
-            <Route path="/feedback/add" element={<AddFeedback />} />
-            <Route path ="/viewFeedback" element={<FeedbackListing/>}/>
-            <Route path="/feedback/edit/:code" element={<UpdateFeedback />} />
-            <Route path="/inDashboard" element={<InDashboard/>}/>
-            <Route path="/customer/Dashboard" element={<CustomerDashboard/>}/>
-            <Route path="/employeeDashboard" element={<EmployeeDashboard/>}/>
-            <Route path="/invoiceReport" element={<InvoiceReport/>} />
+    return ( <
+        Provider store = { Store } >
+        <
+        div className = "App" >
+        <
+        Router >
+        <
+        Routes >
+        <
+        Route path = "/"
+        element = { < Home / > }
+        /> <
+        Route path = "/task"
+        element = { < TaskListing / > }
+        /> <
+        Route path = "/task/add"
+        element = { < AddTask / > }
+        /> <
+        Route path = "/task/edit/:code"
+        element = { < UpdateTask / > }
+        /> <
+        Route path = "/Items"
+        element = { < ItemList / > }
+        /> <
+        Route path = "/AddItem"
+        element = { < AddItem / > }
+        /> <
+        Route path = "/UpdateItem/:code"
+        element = { < UpdateItem / > }
+        /> <
+        Route path = "/vehicle/add"
+        element = { < AddVehicle / > }
+        /> <
+        Route path = "/vehicle/edit/:code"
+        element = { < UpdateVehicle / > }
+        /> <
+        Route path = "/vehicle"
+        element = { < VehicleList / > }
+        /> <
+        Route path = "/location"
+        element = { < Locationlisting / > }
+        /> <
+        Route path = "/location/add"
+        element = { < Addlocation / > }
+        /> <
+        Route path = "/location/edit/:code"
+        element = { < Updatelocation / > }
+        /> <
+        Route path = "/location/Report"
+        element = { < LocationReport / > }
+        /> <
+        Route path = "/emp"
+        element = { < EmployeeTable / > }
+        /> <
+        Route path = "/emp/edit/:code"
+        element = { < UpdateEmp / > }
+        /> <
+        Route path = "/emp/add"
+        element = { < AddEmployee / > }
+        /> <
+        Route path = "/invoice"
+        element = { < InListing / > }
+        /> <
+        Route path = "/invoice/add"
+        element = { < AddInv / > } > < /Route> <
+        Route path = "/invoice/edit/:code"
+        element = { < UpdateInv / > } > < /Route> <
+        Route path = "/customer/add"
+        element = { < AddCustomer / > }
+        /> <
+        Route path = "/viewCustomer"
+        element = { < CustomerListing / > }
+        /> <
+        Route path = "/customer/edit/:code"
+        element = { < UpdateCustomer / > }
+        /> <
+        Route path = "/itemreport"
+        element = { < ItemReport / > }
+        /> <
+        Route path = "/vehicle/report"
+        element = { < VehicleReport / > }
+        /> <
+        Route path = "/itemDashboard"
+        element = { < ItemDashboard / > }
+        /> <
+        Route path = "/emp/report"
+        element = { < EmployeeReport / > }
+        /> <
+        Route path = "/customer/report"
+        element = { < CustomerReport / > }
+        /> <
+        Route path = "/vehicleDashboard"
+        element = { < VehicleDashboard / > }
+        /> <
+        Route path = "/task/report"
+        element = { < TaskReport / > }
+        /> <
+        Route path = "/taskDashboard"
+        element = { < TaskDashboard / > }
+        />\ <
+        Route path = "/locationDashboard"
+        element = { < LocationDashboard / > }
+        /> <
+        Route path = "/itemlist"
+        element = { < ItemList / > }
+        /> <
+        Route path = "/feedback/add"
+        element = { < AddFeedback / > }
+        /> <
+        Route path = "/viewFeedback"
+        element = { < FeedbackListing / > }
+        /> <
+        Route path = "/feedback/edit/:code"
+        element = { < UpdateFeedback / > }
+        /> <
+        Route path = "/inDashboard"
+        element = { < InDashboard / > }
+        /> <
+        Route path = "/customer/Dashboard"
+        element = { < CustomerDashboard / > }
+        /> <
+        Route path = "/employeeDashboard"
+        element = { < EmployeeDashboard / > }
+        /> <
+        Route path = "/invoiceReport"
+        element = { < InvoiceReport / > }
+        />
 
-            
-      
-          </Routes>
-        </Router>
-        <ToastContainer />
-      </div>
-    </Provider>
-  );
+
+        <
+        /Routes> <
+        /Router> <
+        ToastContainer / >
+        <
+        /div> <
+        /Provider>
+    );
 }
 
 export default App;

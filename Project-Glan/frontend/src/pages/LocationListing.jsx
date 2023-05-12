@@ -57,7 +57,7 @@ const LocationListing = (props) => {
             </InputGroup>
           </div>
           <div class="page_sub_header">
-            <t class="sub_header_topic">View Locations</t>
+            <t class="sub_header_topic">View Warehouse Items</t>
             <Link to="/location/add" className="page_link">Create</Link>
           </div>
           <div className="Content">
