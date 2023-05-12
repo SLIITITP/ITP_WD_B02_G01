@@ -76,7 +76,6 @@ const VehicleList = (props) => {
         <Table striped hover className="table">
           <thead className="theader">
             <tr>
-              <td>Obj Id</td>
               <td>Vehicle Type</td>
               <td>Vehicle NumPlate </td>
               <td>Vehicle Insurance</td>
@@ -102,7 +101,6 @@ const VehicleList = (props) => {
                 )
                 .map((item) => (
                   <tr key={item._id}>
-                    <td className="nowrap">{item._id}</td>
                     <td>{item.vType}</td>
                     <td>{item.numPlate}</td>
                     <td>{item.insurance}</td>
