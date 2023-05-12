@@ -45,104 +45,107 @@ const TaskListing = (props) => {
     <div>
       <div>
         {" "}
-        <Header_bar_menu 
-        fun1="Dashboard"
-              fun2="Task"
-              fun3="Add Task"
-              fun4="Report" />
+        <Header_bar_menu
+          fun1="Dashboard"
+          fun2="Task"
+          fun3="Add Task"
+          fun4="Report"
+        />
       </div>
-      
-    <div>
-      {props.task.tasklist &&
-        props.task.tasklist.map((item) => (
-          <script>
-            {item.tState === "Active" ? (ATaskcount = ATaskcount + 1) : null}\
-            {item.tState === "Deactive" ? (DTaskcount = DTaskcount + 1) : null}
-            {item ? (Taskcount = Taskcount + 1) : null}
-          </script>
-        ))}
+
+      <div>
+        {props.task.tasklist &&
+          props.task.tasklist.map((item) => (
+            <script>
+              {item.tState === "Active" ? (ATaskcount = ATaskcount + 1) : null}\
+              {item.tState === "Deactive"
+                ? (DTaskcount = DTaskcount + 1)
+                : null}
+              {item ? (Taskcount = Taskcount + 1) : null}
+            </script>
+          ))}
         <Dashboard
-            topic="Manufacture Dashboard"
-            word1= "Active Task Count"
-            num1={<span>{ATaskcount.toFixed(0)}</span>}
-            word2="DeActive Task Count"
-            num2={<span> {DTaskcount.toFixed(0)}</span>}
-            word3="Total Task Count"
-            num3= {<span>{Taskcount.toFixed(0)}</span>}
-
-        cha1={<iframe
-          style={
-            ({ background: "#FFFFFF" },
-            { borderradius: "2px" },
-            { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+          topic="Manufacture Dashboard"
+          word1="Active Task Count"
+          num1={<span>{ATaskcount.toFixed(0)}</span>}
+          word2="DeActive Task Count"
+          num2={<span> {DTaskcount.toFixed(0)}</span>}
+          word3="Total Task Count"
+          num3={<span>{Taskcount.toFixed(0)}</span>}
+          cha1={
+            <iframe
+              style={
+                ({ background: "#FFFFFF" },
+                { borderradius: "2px" },
+                { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+              }
+              width="380"
+              height="250"
+              src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645bdf4c-b515-4368-8b67-ba9511d6c2ad&maxDataAge=3600&theme=light&autoRefresh=true"
+            ></iframe>
           }
-          width="380"
-          height="250"
-          src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645bdf4c-b515-4368-8b67-ba9511d6c2ad&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>}
-
-      
-        cha2={<iframe
-          style={
-            ({ background: "#FFFFFF" },
-            { borderradius: "2px" },
-            { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+          cha2={
+            <iframe
+              style={
+                ({ background: "#FFFFFF" },
+                { borderradius: "2px" },
+                { boxshadow: "0 2px 10px 0 rgba(70, 76, 79, .2)" })
+              }
+              width="380"
+              height="250"
+              src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645be2c0-6fa3-4798-85f3-fbce151794a6&maxDataAge=3600&theme=light&autoRefresh=true"
+            ></iframe>
           }
-          width="380"
-          height="250"
-          src="https://charts.mongodb.com/charts-glaninternational-rccip/embed/charts?id=645be2c0-6fa3-4798-85f3-fbce151794a6&maxDataAge=3600&theme=light&autoRefresh=true"
-        ></iframe>}
-
-        view={
-        <div className="itemTable">
-          <Table striped hover className="table">
-            <thead className="theaderManuf">
-              <tr>
-                <td>Obj Id</td>
-                <td>Task Id</td>
-                <td>Output Item Name</td>
-                <td>Output Item Quantity</td>
-                <td>Production Supervisor</td>
-                <td>Start Date</td>
-                <td>End Date</td>
-                <td>Status</td>
-              </tr>
-            </thead>
-            <tbody className="tbodyManuf">
-              {props.task.tasklist &&
-                props.task.tasklist
-                  .filter(
-                    (item) =>
-                      item.tId
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase()) ||
-                      item.iName
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase()) ||
-                      item.sDate
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase()) ||
-                      item.prodSupe
-                        .toLowerCase()
-                        .includes(searchTerm.toLowerCase())
-                  )
-                  .map((item) => (
-                    <tr key={item._id}>
-                      <td className="nowrap">{item._id}</td>
-                      <td>{item.tId}</td>
-                      <td>{item.iName}</td>
-                      <td>{item.iQty}</td>
-                      <td>{item.prodSupe}</td>
-                      <td>{item.sDate}</td>
-                      <td>{item.eDate}</td>
-                      <td>{item.tState}</td>
-                    </tr>
-                  ))}
-            </tbody>
-          </Table>
-        </div>}/>
-        </div>
+          view={
+            <div className="itemTable">
+              <Table striped hover className="table">
+                <thead className="theaderManuf">
+                  <tr>
+                    <td>Task Id</td>
+                    <td>Output Item Name</td>
+                    <td>Output Item Quantity</td>
+                    <td>Production Supervisor</td>
+                    <td>Start Date</td>
+                    <td>End Date</td>
+                    <td>Status</td>
+                  </tr>
+                </thead>
+                <tbody className="tbodyManuf">
+                  {props.task.tasklist &&
+                    props.task.tasklist
+                      .filter(
+                        (item) =>
+                          item.tId
+                            .toLowerCase()
+                            .includes(searchTerm.toLowerCase()) ||
+                          item.iName
+                            .toLowerCase()
+                            .includes(searchTerm.toLowerCase()) ||
+                          item.sDate
+                            .toLowerCase()
+                            .includes(searchTerm.toLowerCase()) ||
+                          item.prodSupe
+                            .toLowerCase()
+                            .includes(searchTerm.toLowerCase())
+                      )
+                      .map((item) => (
+                        <tr key={item._id}>
+                          <td>{item.tId}</td>
+                          <td>{item.iName}</td>
+                          <td>{item.iQty}</td>
+                          <td>{item.prodSupe}</td>
+                          <td>{item.sDate}</td>
+                          <td>{item.eDate}</td>
+                          <td>{item.tState}</td>
+                        </tr>
+                      ))}
+                </tbody>
+              </Table>
+            </div>
+          }
+        />
       </div>
+    </div>
   );
 };
 

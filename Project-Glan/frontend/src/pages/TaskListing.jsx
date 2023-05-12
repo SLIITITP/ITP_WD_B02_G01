@@ -40,11 +40,12 @@ const TaskListing = (props) => {
     <div>
       <div>
         {" "}
-        <Header_bar_menu 
-              fun1="Dashboard"
-              fun2="Task"
-              fun3="Add Task"
-              fun4="Report" />
+        <Header_bar_menu
+          fun1="Dashboard"
+          fun2="Task"
+          fun3="Add Task"
+          fun4="Report"
+        />
       </div>
       <div className="search">
         <InputGroup className="mb-3">
@@ -71,7 +72,6 @@ const TaskListing = (props) => {
           <Table striped hover className="table">
             <thead className="theaderManuf">
               <tr>
-                <td>Obj Id</td>
                 <td>Task Id</td>
                 <td>Output Item Name</td>
                 <td>Output Item Quantity</td>
@@ -84,7 +84,6 @@ const TaskListing = (props) => {
             </thead>
             <tbody className="tbodyManuf">
               {props.task.tasklist &&
-
                 props.task.tasklist
                   .filter(
                     (item) =>
@@ -103,7 +102,6 @@ const TaskListing = (props) => {
                   )
                   .map((item) => (
                     <tr key={item._id}>
-                      <td className="nowrap">{item._id}</td>
                       <td>{item.tId}</td>
                       <td>{item.iName}</td>
                       <td>{item.iQty}</td>
@@ -129,7 +127,6 @@ const TaskListing = (props) => {
                             <FiTrash2 size="1.4rem" color="red" />
                           </button>
                         </td>
-
                       </td>
                     </tr>
                   ))}
